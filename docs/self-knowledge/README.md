@@ -28,15 +28,15 @@ This section should contain:
 
 This is NOT just links to docs - it's synthesized knowledge.
 
-## Files (Planned)
+## Files
 
-| File | Topic |
-|------|-------|
-| `context-management.md` | How context windows work, limits, strategies |
-| `subagent-mechanics.md` | How subagents are spawned, constraints |
-| `tool-execution.md` | How tools execute, permission model |
-| `memory-systems.md` | CLAUDE.md, memory persistence |
-| `capability-boundaries.md` | What Claude can/cannot do |
+| File | Status | Topic |
+|------|--------|-------|
+| `context-management.md` | ✅ Complete | How context windows work, limits, strategies |
+| `subagent-mechanics.md` | ✅ Complete | How subagents are spawned, orchestration, constraints |
+| `tool-execution.md` | ✅ Complete | How tools execute, permission model |
+| `memory-systems.md` | Planned | CLAUDE.md, memory persistence |
+| `capability-boundaries.md` | Planned | What Claude can/cannot do |
 
 ## Quality Standards
 
@@ -54,4 +54,4 @@ Content here must be:
 
 ## Status
 
-DEFERRED - This section requires deliberate, thoughtful development. See `_workspace/backlog/` for planning.
+IN PROGRESS - Three priority documents completed (context-management, subagent-mechanics, tool-execution). Two remaining documents planned for future work.

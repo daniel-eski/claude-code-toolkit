@@ -1,0 +1,24 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-*
+
+# Backup files
+*.backup
+*.bak
+
+# Local settings (if any)
+*.local.*
+
+# Node (if ever needed)
+node_modules/
+
+# Logs
+*.log
