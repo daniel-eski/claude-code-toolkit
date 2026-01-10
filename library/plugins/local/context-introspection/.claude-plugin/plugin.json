@@ -1,0 +1,21 @@
+{
+  "name": "context-introspection",
+  "version": "1.0.0",
+  "description": "Generates a comprehensive report of all context sources influencing your Claude Code session (CLAUDE.md files, skills, hooks, MCP servers, agents, commands)",
+  "author": {
+    "name": "Daniel Eskenazi",
+    "url": "https://github.com/daniel-eski"
+  },
+  "repository": "https://github.com/daniel-eski/claude-code-docs-and-external-plugins",
+  "license": "MIT",
+  "keywords": [
+    "introspection",
+    "context",
+    "debugging",
+    "transparency",
+    "CLAUDE.md",
+    "skills",
+    "hooks",
+    "mcp"
+  ]
+}
