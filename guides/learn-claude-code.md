@@ -31,17 +31,19 @@ You want to go beyond basic usage and truly understand how Claude Code works. Ma
 
 | Resource | Type | Location | Why |
 |----------|------|----------|-----|
-| Plugin deployment guide | Doc | `library/plugins/README.md` | How to install and configure plugins |
-| Plugin catalog | Reference | `library/plugins/CATALOG.md` | Browse all available plugins |
+| Plugin deployment guide | Doc | [library/plugins/README.md](../library/plugins/) | How to install and configure plugins |
+| Official plugins catalog | Reference | [library/plugins/official/CATALOG.md](../library/plugins/official/CATALOG.md) | Browse all official Anthropic plugins |
 
 ### Documentation
 
-| Doc | Location | When to Read |
-|-----|----------|--------------|
-| Claude Code Best Practices | `docs/best-practices/claude-code-best-practices.md` | Core patterns for effective usage - read first |
-| Context Engineering | `docs/best-practices/context-engineering.md` | How Claude Code manages context and memory |
-| Building Effective Agents | `docs/best-practices/building-effective-agents.md` | Agent architecture and patterns |
-| Anthropic Academy | `docs/external/tutorials-courses.md` | Video courses and structured learning paths |
+| Doc | Source | When to Read |
+|-----|--------|--------------|
+| Claude Code Best Practices | [anthropic.com/engineering](https://www.anthropic.com/engineering/claude-code-best-practices) | Core patterns for effective usage - read first |
+| Context Engineering | [anthropic.com/engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | How Claude Code manages context and memory |
+| Building Effective Agents | [anthropic.com/engineering](https://www.anthropic.com/engineering/building-effective-agents) | Agent architecture and patterns |
+| External Resources | [docs/external/](../docs/external/) | Video courses, tutorials, and community resources |
+
+> **Note**: For a full index of best practices with summaries, see [docs/best-practices/](../docs/best-practices/).
 
 ---
 
@@ -49,10 +51,11 @@ You want to go beyond basic usage and truly understand how Claude Code works. Ma
 
 1. **Start with fundamentals** - Read the Claude Code Best Practices doc to understand core patterns and mental models
 
-2. **Install the advisor plugin** - Deploy claude-code-advisor for on-demand explanations:
+2. **Install the advisor plugin** - Add claude-code-advisor to your settings:
    ```bash
-   cd library/tools/
-   ./deploy-plugin.sh ../plugins/local/claude-code-advisor/
+   # Add to ~/.claude/settings.json under "pluginDirs":
+   # "~/.claude/plugins/claude-code-advisor"
+   # Or run Claude Code with: claude --plugin-dir path/to/claude-code-advisor
    ```
 
 3. **Explore specific features** - Use the advisor's commands to dive deep:

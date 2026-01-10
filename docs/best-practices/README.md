@@ -172,29 +172,6 @@ Tool use fundamentals, client vs. server tools, and MCP integration.
 
 ---
 
-## Local Copies
-
-Full content of these documents is available locally at:
-
-```
-/Users/danieleskenazi/Desktop/Repos/Claude Code Docs with External plug ins/12-best-practices/
-```
-
-**Available files**:
-| File | Description |
-|------|-------------|
-| `building-effective-agents.md` | Agent architecture patterns |
-| `claude-4-prompting.md` | Claude 4.x specific techniques |
-| `claude-code-best-practices.md` | Agentic coding workflows |
-| `context-engineering.md` | Context management strategies |
-| `multi-agent-research-system.md` | Orchestrator-worker case study |
-| `prompt-engineering-overview.md` | Core prompting techniques |
-| `think-tool.md` | Intermediate reasoning |
-| `tool-use-overview.md` | Tool use fundamentals |
-| `writing-tools-for-agents.md` | Tool design principles |
-
----
-
 ## Learning Paths
 
 ### New to Claude Code
@@ -219,3 +196,17 @@ Full content of these documents is available locally at:
 - Engineering blog: https://anthropic.com/engineering
 - Platform docs: https://platform.claude.com/docs
 - Document fetch date: January 2026
+
+---
+
+## Design Decision
+
+**Approach**: Pointers to external sources (not local copies)
+
+**Rationale**:
+- External sources stay current with upstream updates
+- No maintenance burden for keeping local copies synchronized
+- Summaries and "when to use" guidance provide contextual value
+- Learning paths help navigate the material
+
+**URLs Verified**: 2026-01-10 (anthropic.com/engineering, platform.claude.com, code.claude.com)

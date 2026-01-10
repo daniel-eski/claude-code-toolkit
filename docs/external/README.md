@@ -246,20 +246,3 @@ claude --mcp-debug
 | [Claude Developers Discord](https://discord.com/invite/6PPFFzqPDZ) | Official community (~51K members) |
 | [Support Center](https://support.claude.com) | 26 video tutorials, FAQ |
 
----
-
-## Source Material
-
-Detailed versions of these indexes are available locally at:
-
-```
-/Users/danieleskenazi/Desktop/Repos/Claude Code Docs with External plug ins/13-external-resources-guide/
-```
-
-**Available files**:
-- `api-reference.md` - Full API documentation links
-- `tutorials-courses.md` - Complete learning resources
-- `github-repositories.md` - All official repositories
-- `mcp-resources.md` - MCP documentation and servers
-- `agent-development.md` - Agent building resources
-- `prompt-engineering.md` - Prompting guides

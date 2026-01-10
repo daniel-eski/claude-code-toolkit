@@ -38,12 +38,14 @@ You want to add new capabilities to Claude Code beyond what comes built-in. This
 
 ### Documentation
 
-| Doc | Location | When to Read |
-|-----|----------|--------------|
-| Writing Tools for Agents | [docs/best-practices/](../docs/best-practices/) | Designing tool interfaces and MCP servers |
-| Skills Deep Dive | [docs/core-features/skills.md](../docs/core-features/skills.md) | Understanding skill structure and loading |
-| Hooks Guide | [docs/core-features/hooks-guide.md](../docs/core-features/hooks-guide.md) | Hook events, patterns, and examples |
-| Plugin Reference | [docs/plugins/reference.md](../docs/plugins/reference.md) | Plugin manifest and component specs |
+| Doc | Source | When to Read |
+|-----|--------|--------------|
+| Writing Tools for Agents | [anthropic.com/engineering](https://www.anthropic.com/engineering/writing-tools-for-agents) | Designing tool interfaces and MCP servers |
+| Skills | [code.claude.com](https://code.claude.com/docs/en/skills) | Understanding skill structure and loading |
+| Hooks Guide | [code.claude.com](https://code.claude.com/docs/en/hooks-guide) | Hook events, patterns, and examples |
+| Plugins Reference | [code.claude.com](https://code.claude.com/docs/en/plugins-reference) | Plugin manifest and component specs |
+
+> **Tip**: See [docs/claude-code/](../docs/claude-code/) for a complete index of official documentation.
 
 ---
 

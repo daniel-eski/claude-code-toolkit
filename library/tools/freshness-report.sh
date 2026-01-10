@@ -142,7 +142,7 @@ while IFS= read -r source_file; do
     check_skill "$source_file"
     # Rate limiting - be nice to GitHub API
     sleep 0.5
-done < <(find "$RESOURCES_DIR/core-skills" "$RESOURCES_DIR/extended-skills" -name ".source" 2>/dev/null | sort)
+done < <(find "$RESOURCES_DIR/skills/core-skills" "$RESOURCES_DIR/skills/extended-skills" -name ".source" 2>/dev/null | sort)
 
 # Output summary
 if [ "$JSON_OUTPUT" = true ]; then

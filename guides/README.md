@@ -6,16 +6,28 @@
 
 ## Quick Selector
 
-| I want to... | Guide | Key Resources |
-|--------------|-------|---------------|
-| **Start a new feature or project** | [start-feature.md](start-feature.md) | feature-dev plugin, brainstorming skill |
-| **Debug and fix problems** | [debug-problems.md](debug-problems.md) | systematic-debugging skill, context-introspection |
-| **Improve my code quality** | [improve-quality.md](improve-quality.md) | pr-review-toolkit, code-review plugin |
-| **Work with Git/GitHub** | [git-workflow.md](git-workflow.md) | commit-commands plugin, git-commit skill |
-| **Create documents** | [create-documents.md](create-documents.md) | docx, xlsx, pptx, pdf skills |
-| **Understand Claude Code** | [learn-claude-code.md](learn-claude-code.md) | claude-code-advisor, best-practices docs |
-| **Build skills or plugins** | [extend-claude-code.md](extend-claude-code.md) | plugin-dev, hookify, skill-authoring |
-| **Orchestrate complex work** | [orchestrate-work.md](orchestrate-work.md) | ralph-wiggum, parallel-agents skill |
+| I want to... | Guide | Description |
+|--------------|-------|-------------|
+| **Start a new feature or project** | [start-feature.md](start-feature.md) | Structured approach to planning and implementing new work with brainstorming and feature-dev tools |
+| **Debug and fix problems** | [debug-problems.md](debug-problems.md) | Systematic debugging methodology with context analysis and root cause identification |
+| **Improve my code quality** | [improve-quality.md](improve-quality.md) | Code review workflows, PR preparation, and quality assurance practices |
+| **Work with Git/GitHub** | [git-workflow.md](git-workflow.md) | Conventional commits, PR creation/review, and GitHub automation |
+| **Create documents** | [create-documents.md](create-documents.md) | Generate Word, Excel, PowerPoint, and PDF files programmatically |
+| **Understand Claude Code** | [learn-claude-code.md](learn-claude-code.md) | Deep dive into Claude Code internals with expert advisor tools |
+| **Build skills or plugins** | [extend-claude-code.md](extend-claude-code.md) | Create custom skills, plugins, and hooks to extend Claude Code |
+| **Orchestrate complex work** | [orchestrate-work.md](orchestrate-work.md) | Coordinate multiple subagents for parallel task execution |
+
+---
+
+## Quick Comparisons
+
+| Question | Answer | Learn More |
+|----------|--------|------------|
+| **Skills vs Subagents?** | Skills extend your capabilities; subagents run isolated tasks | [orchestrate-work.md](orchestrate-work.md) |
+| **Skill vs Plugin?** | Skills are instructions; plugins add commands and tools | [extend-claude-code.md](extend-claude-code.md) |
+| **Local vs Official plugins?** | Local = custom/community; Official = Anthropic-maintained | [../library/plugins/](../library/plugins/) |
+| **When use brainstorming vs feature-dev?** | Brainstorming for ideas; feature-dev for implementation | [start-feature.md](start-feature.md) |
+| **Git skill vs commit plugin?** | Skills for workflow guidance; plugins for automation | [git-workflow.md](git-workflow.md) |
 
 ---
 

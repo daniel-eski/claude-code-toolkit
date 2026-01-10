@@ -33,7 +33,7 @@ count_docs_by_folder() {
 
 # Count total skills
 count_skills() {
-    find "$RESOURCES_DIR/core-skills" "$RESOURCES_DIR/extended-skills" -name "SKILL.md" -type f 2>/dev/null | wc -l | tr -d ' '
+    find "$RESOURCES_DIR/skills/core-skills" "$RESOURCES_DIR/skills/extended-skills" -name "SKILL.md" -type f 2>/dev/null | wc -l | tr -d ' '
 }
 
 # Count placeholder skills
@@ -45,18 +45,18 @@ count_placeholders() {
         if grep -q "skill could not be fetched\|repository could not be found\|Not Available" "$skill_md" 2>/dev/null; then
             count=$((count + 1))
         fi
-    done < <(find "$RESOURCES_DIR/core-skills" "$RESOURCES_DIR/extended-skills" -name "SKILL.md" -type f 2>/dev/null)
+    done < <(find "$RESOURCES_DIR/skills/core-skills" "$RESOURCES_DIR/skills/extended-skills" -name "SKILL.md" -type f 2>/dev/null)
     echo "$count"
 }
 
 # Count core skills
 count_core() {
-    find "$RESOURCES_DIR/core-skills" -name "SKILL.md" -type f 2>/dev/null | wc -l | tr -d ' '
+    find "$RESOURCES_DIR/skills/core-skills" -name "SKILL.md" -type f 2>/dev/null | wc -l | tr -d ' '
 }
 
 # Count extended skills
 count_extended() {
-    find "$RESOURCES_DIR/extended-skills" -name "SKILL.md" -type f 2>/dev/null | wc -l | tr -d ' '
+    find "$RESOURCES_DIR/skills/extended-skills" -name "SKILL.md" -type f 2>/dev/null | wc -l | tr -d ' '
 }
 
 # Count skills by category
@@ -93,7 +93,7 @@ get_skill_details() {
         desc=$(grep "^description:" "$skill_md" 2>/dev/null | head -1 | sed "s/description:[[:space:]]*//" | sed "s/'//g" | sed 's/"//g' | cut -c1-60)
 
         echo "$skill_name|$lines|$rel_path|$status|$desc"
-    done < <(find "$RESOURCES_DIR/core-skills" "$RESOURCES_DIR/extended-skills" -name "SKILL.md" -type f 2>/dev/null | sort)
+    done < <(find "$RESOURCES_DIR/skills/core-skills" "$RESOURCES_DIR/skills/extended-skills" -name "SKILL.md" -type f 2>/dev/null | sort)
 }
 
 # Generate JSON output
@@ -145,7 +145,7 @@ EOF
             echo ","
         fi
         printf '      "%s": %s' "$name" "$count"
-    done < <(count_by_category "$RESOURCES_DIR/core-skills")
+    done < <(count_by_category "$RESOURCES_DIR/skills/core-skills")
     echo ""
 
     cat << EOF
@@ -163,7 +163,7 @@ EOF
             echo ","
         fi
         printf '      "%s": %s' "$name" "$count"
-    done < <(count_by_category "$RESOURCES_DIR/extended-skills")
+    done < <(count_by_category "$RESOURCES_DIR/skills/extended-skills")
     echo ""
 
     cat << EOF
@@ -240,7 +240,7 @@ EOF
 
     while IFS=: read -r name count; do
         echo "| $name | $count |"
-    done < <(count_by_category "$RESOURCES_DIR/core-skills")
+    done < <(count_by_category "$RESOURCES_DIR/skills/core-skills")
 
     cat << EOF
 
@@ -252,7 +252,7 @@ EOF
 
     while IFS=: read -r name count; do
         echo "| $name | $count |"
-    done < <(count_by_category "$RESOURCES_DIR/extended-skills")
+    done < <(count_by_category "$RESOURCES_DIR/skills/extended-skills")
 
     cat << EOF
 
@@ -342,7 +342,7 @@ EOF
             echo ","
         fi
         printf '        "%s": %s' "$name" "$count"
-    done < <(count_by_category "$RESOURCES_DIR/core-skills") >> "$metadata_file"
+    done < <(count_by_category "$RESOURCES_DIR/skills/core-skills") >> "$metadata_file"
 
     cat >> "$metadata_file" << EOF
 
@@ -359,7 +359,7 @@ EOF
             echo ","
         fi
         printf '        "%s": %s' "$name" "$count"
-    done < <(count_by_category "$RESOURCES_DIR/extended-skills") >> "$metadata_file"
+    done < <(count_by_category "$RESOURCES_DIR/skills/extended-skills") >> "$metadata_file"
 
     cat >> "$metadata_file" << EOF
 

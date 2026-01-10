@@ -92,14 +92,14 @@ HEADER
     echo ""
 
     # Count totals
-    local total_skills=$(find "$RESOURCES_DIR/core-skills" "$RESOURCES_DIR/extended-skills" -name "SKILL.md" -type f 2>/dev/null | wc -l | tr -d ' ')
+    local total_skills=$(find "$RESOURCES_DIR/skills/core-skills" "$RESOURCES_DIR/skills/extended-skills" -name "SKILL.md" -type f 2>/dev/null | wc -l | tr -d ' ')
     local placeholder_count=0
     while IFS= read -r skill_md; do
         [ -z "$skill_md" ] && continue
         if is_placeholder "$skill_md"; then
             placeholder_count=$((placeholder_count + 1))
         fi
-    done < <(find "$RESOURCES_DIR/core-skills" "$RESOURCES_DIR/extended-skills" -name "SKILL.md" -type f 2>/dev/null)
+    done < <(find "$RESOURCES_DIR/skills/core-skills" "$RESOURCES_DIR/skills/extended-skills" -name "SKILL.md" -type f 2>/dev/null)
     local working_count=$((total_skills - placeholder_count))
 
     echo "**Total skills**: $total_skills ($working_count available, $placeholder_count placeholders)"
@@ -110,11 +110,11 @@ HEADER
     echo ""
 
     # Core skills sections
-    generate_section "$RESOURCES_DIR/core-skills/obra-workflow" \
+    generate_section "$RESOURCES_DIR/skills/core-skills/obra-workflow" \
         "Workflow Skills (obra-workflow)" \
         "https://github.com/obra/superpowers"
 
-    generate_section "$RESOURCES_DIR/core-skills/obra-development" \
+    generate_section "$RESOURCES_DIR/skills/core-skills/obra-development" \
         "Development Skills (obra-development)" \
         "https://github.com/obra/superpowers"
 
@@ -134,18 +134,18 @@ HEADER
             status="Placeholder"
         fi
         echo "| $skill_name | $lines | $desc | $status |"
-    done < <(find "$RESOURCES_DIR/core-skills/git-workflow" -name "SKILL.md" -type f 2>/dev/null | sort)
+    done < <(find "$RESOURCES_DIR/skills/core-skills/git-workflow" -name "SKILL.md" -type f 2>/dev/null | sort)
     echo ""
 
-    generate_section "$RESOURCES_DIR/core-skills/testing" \
+    generate_section "$RESOURCES_DIR/skills/core-skills/testing" \
         "Testing Skills (testing)" \
         ""
 
-    generate_section "$RESOURCES_DIR/core-skills/document-creation" \
+    generate_section "$RESOURCES_DIR/skills/core-skills/document-creation" \
         "Document Creation Skills (document-creation)" \
         "https://github.com/anthropics/skills"
 
-    generate_section "$RESOURCES_DIR/core-skills/skill-authoring" \
+    generate_section "$RESOURCES_DIR/skills/core-skills/skill-authoring" \
         "Skill Authoring (skill-authoring)" \
         "https://github.com/anthropics/skills"
 
@@ -154,12 +154,12 @@ HEADER
     echo "# Extended Skills"
     echo ""
 
-    generate_section "$RESOURCES_DIR/extended-skills/aws-skills" \
+    generate_section "$RESOURCES_DIR/skills/extended-skills/aws-skills" \
         "AWS Skills (aws-skills)" \
         "https://github.com/zxkane/aws-skills"
 
     # Check for context-engineering (links only)
-    if [ -d "$RESOURCES_DIR/extended-skills/context-engineering" ]; then
+    if [ -d "$RESOURCES_DIR/skills/extended-skills/context-engineering" ]; then
         echo "## Context Engineering (context-engineering)"
         echo ""
         echo "**Status**: Links only (not downloaded locally)"

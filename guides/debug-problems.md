@@ -35,9 +35,11 @@ Something is broken and you need to fix it. This could be a runtime error, unexp
 
 ### Documentation
 
-| Doc | Location | When to Read |
-|-----|----------|--------------|
-| The "think" Tool | `docs/best-practices/think-tool-blog.md` | When debugging complex issues requiring deep reasoning and multi-step analysis |
+| Doc | Source | When to Read |
+|-----|--------|--------------|
+| The "think" Tool | [anthropic.com/engineering](https://www.anthropic.com/engineering/claude-think-tool) | When debugging complex issues requiring deep reasoning and multi-step analysis |
+
+> **Tip**: See [docs/best-practices/](../docs/best-practices/) for more debugging and analysis techniques.
 
 ---
 

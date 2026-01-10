@@ -35,10 +35,12 @@ You want to begin work on a new feature, component, or project. This could be ad
 
 ### Documentation
 
-| Doc | Location | When to Read |
-|-----|----------|--------------|
-| Claude Code Best Practices | `docs/best-practices/claude-code-best-practices.md` | Before starting - learn CLAUDE.md setup and agentic coding patterns |
-| Building Effective Agents | `docs/best-practices/building-effective-agents.md` | When designing agent architecture or multi-component systems |
+| Doc | Source | When to Read |
+|-----|--------|--------------|
+| Claude Code Best Practices | [anthropic.com/engineering](https://www.anthropic.com/engineering/claude-code-best-practices) | Before starting - learn CLAUDE.md setup and agentic coding patterns |
+| Building Effective Agents | [anthropic.com/engineering](https://www.anthropic.com/engineering/building-effective-agents) | When designing agent architecture or multi-component systems |
+
+> **Tip**: See [docs/best-practices/](../docs/best-practices/) for summaries of all key documents.
 
 ---
 

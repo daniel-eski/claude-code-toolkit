@@ -149,20 +149,8 @@ CLI, troubleshooting, costs, and other reference material.
 
 ---
 
-## Offline Access
-
-For offline access to full documentation, local copies are available in:
-
-```
-/Users/danieleskenazi/Desktop/Repos/Claude Code Docs with External plug ins/
-```
-
-Folders 01-10 contain mirrored documentation from code.claude.com (synced January 6, 2026).
-
----
-
 ## Source
 
 - Official documentation: https://code.claude.com
-- Full documentation index: `llms.txt` in the old repo
-- Last sync: January 6, 2026
+- Documentation index: https://code.claude.com/docs/llms.txt
+- This index created: January 2026
