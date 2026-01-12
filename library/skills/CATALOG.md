@@ -1,8 +1,32 @@
 # Skills Catalog
 
-Complete indexed catalog of all available skills. Last updated: 2026-01-06
+Complete indexed catalog of all available skills. Last updated: 2026-01-10
 
 **Total: 28 working skills + 2 placeholders + 4 extended skills**
+
+---
+
+## Quick Start Examples
+
+**Start a brainstorming session:**
+```
+> Let's brainstorm approaches for the authentication system
+```
+
+**Debug with systematic approach:**
+```
+> Use systematic-debugging to investigate the login timeout issue
+```
+
+**Create a document:**
+```
+> Use the xlsx skill to create a project tracking spreadsheet
+```
+
+**Git workflow:**
+```
+> Create a commit following conventional commits format
+```
 
 ---
 
@@ -11,6 +35,8 @@ Complete indexed catalog of all available skills. Last updated: 2026-01-06
 ### Workflow Skills (obra-workflow/)
 
 Skills for strategic planning and workflow methodology by Jesse Vincent from [obra/superpowers](https://github.com/obra/superpowers).
+
+**When to use**: Starting new projects, planning complex features, coordinating multi-agent work, working with interactive CLI tools.
 
 | Skill | Lines | Description | Status |
 |-------|-------|-------------|--------|
@@ -26,6 +52,8 @@ Source: [obra/superpowers](https://github.com/obra/superpowers/tree/main/skills)
 ### Development Skills (obra-development/)
 
 Skills for software development workflows from [obra/superpowers](https://github.com/obra/superpowers).
+
+**When to use**: TDD workflows, debugging issues, code review process, managing Git branches, validating work before completion.
 
 | Skill | Lines | Description | Status |
 |-------|-------|-------------|--------|
@@ -45,6 +73,8 @@ Source: [obra/superpowers](https://github.com/obra/superpowers/tree/main/skills)
 
 Skills for Git and GitHub automation from [fvadicamo/dev-agent-skills](https://github.com/fvadicamo/dev-agent-skills).
 
+**When to use**: Creating conventional commits, managing pull requests, reviewing code changes, generating changelogs.
+
 | Skill | Lines | Description | Status |
 |-------|-------|-------------|--------|
 | git-commit | 235 | Conventional Commits format | Available |
@@ -60,6 +90,8 @@ Note: changelog-generator (ComposioHQ) repository not accessible.
 
 Skills for testing and quality assurance.
 
+**When to use**: Web application testing with Playwright, pairwise test case generation.
+
 | Skill | Lines | Description | Status |
 |-------|-------|-------------|--------|
 | webapp-testing | 95 | Test web applications using Playwright | Available |
@@ -73,6 +105,8 @@ Note: pypict-skill (omkamal) repository not accessible.
 
 Skills for creating and manipulating documents from [anthropics/skills](https://github.com/anthropics/skills).
 
+**When to use**: Generating reports, creating presentations, building spreadsheets, extracting data from PDFs, collaborative document editing.
+
 | Skill | Lines | Description | Status |
 |-------|-------|-------------|--------|
 | docx | 196 | Create, edit, and analyze Word documents | Available |
@@ -84,6 +118,8 @@ Skills for creating and manipulating documents from [anthropics/skills](https://
 ### Skill Authoring (skill-authoring/)
 
 Meta skills for creating new skills from [anthropics/skills](https://github.com/anthropics/skills).
+
+**When to use**: Creating custom skills for your workflows, understanding SKILL.md structure and best practices.
 
 | Skill | Lines | Description | Status |
 |-------|-------|-------------|--------|
@@ -97,6 +133,8 @@ Meta skills for creating new skills from [anthropics/skills](https://github.com/
 ### AWS Skills (extended-skills/aws-skills/)
 
 AWS development skills from [zxkane/aws-skills](https://github.com/zxkane/aws-skills).
+
+**When to use**: AWS CDK development, serverless architecture design, cost optimization, building agentic AI on AWS.
 
 | Skill | Lines | Description | Status |
 |-------|-------|-------------|--------|

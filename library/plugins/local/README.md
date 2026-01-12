@@ -10,6 +10,7 @@
 |--------|---------|----------|
 | `claude-code-advisor/` | Strategic advisor for Claude Code features | `/cc-advisor`, `/cc-analyze`, `/cc-verify`, `/cc-design` |
 | `context-introspection/` | Session context reporting | `/context-introspection:report` |
+| `workflow-optimizer/` | Complete workflow system for complex projects | `/workflow-optimizer:optimize`, `/workflow-optimizer:plan-files`, `/workflow-optimizer:architect` |
 
 ---
 
@@ -66,6 +67,49 @@ context-introspection/
 
 ---
 
+## workflow-optimizer
+
+A complete workflow system for complex projects with three loosely-coupled skills:
+
+1. **prompt-optimizer** - Clarify objectives and ensure alignment before complex tasks
+2. **planning-with-files** - Establish persistent context using markdown files as "working memory"
+3. **agent-architect** - Design optimal Claude Code architecture based on established context
+
+### Commands
+- `/workflow-optimizer:optimize` - Clarify objectives for complex tasks
+- `/workflow-optimizer:plan-files` - Set up file-based planning (task_plan.md, findings.md, progress.md)
+- `/workflow-optimizer:architect` - Design CLAUDE.md, subagents, and hooks for your task
+
+### The Workflow
+```
+1. OPTIMIZE → Clarify objectives and assumptions
+       ↓
+2. PLAN-FILES → Establish persistent context
+       ↓
+3. ARCHITECT → Design tooling based on context
+       ↓
+[Execute Work with optimal setup]
+```
+
+### Structure
+```
+workflow-optimizer/
+├── .claude-plugin/
+│   └── plugin.json
+├── skills/
+│   ├── prompt-optimizer/       # Objective clarification
+│   ├── planning-with-files/    # File-based context management
+│   └── agent-architect/        # Architecture design + templates
+├── commands/                   # 3 slash commands
+├── README.md
+├── PHILOSOPHY.md               # Design rationale
+└── CHANGELOG.md
+```
+
+Source: Graduated from `experimental/plugins/` (2026-01-10)
+
+---
+
 ## Installation
 
 ### Use Directly
@@ -101,5 +145,6 @@ For WIP plugins, see `experimental/plugins/`.
 
 ## Status
 
-MIGRATED - 2 production plugins from old repo.
-Migrated: 2026-01-09
+3 production plugins available.
+- 2 migrated from old repo (2026-01-09)
+- 1 graduated from experimental/ (2026-01-10)

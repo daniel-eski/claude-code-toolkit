@@ -17,7 +17,7 @@ DEPLOYED=0
 FAILED=0
 
 # Find all directories containing SKILL.md in core-skills/
-for skill_dir in $(find "$RESOURCES_DIR/core-skills" -name "SKILL.md" -exec dirname {} \;); do
+for skill_dir in $(find "$RESOURCES_DIR/skills/core-skills" -name "SKILL.md" -exec dirname {} \;); do
     skill_name=$(basename "$skill_dir")
 
     # Skip if SKILL.md is a placeholder

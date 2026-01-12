@@ -6,6 +6,7 @@ Utility scripts for working with skills, plugins, and repository maintenance.
 
 | Script | Purpose |
 |--------|---------|
+| validate-links.sh | Validate internal links in markdown files |
 | deploy-skill.sh | Deploy a single skill to Claude Code |
 | deploy-all.sh | Deploy all core skills |
 | validate-skill.sh | Validate SKILL.md format |
@@ -18,6 +19,20 @@ Utility scripts for working with skills, plugins, and repository maintenance.
 | fix-unknown-shas.sh | Fix .source files with unknown SHAs |
 
 ## Usage Examples
+
+### Link Validation
+
+    # Validate all markdown links in the repository
+    ./validate-links.sh
+
+    # Validate a specific directory
+    ./validate-links.sh ../skills/
+
+    # Verbose mode (show all links, not just broken)
+    ./validate-links.sh --verbose
+
+    # Also check external URLs (slower)
+    ./validate-links.sh --external
 
 ### Deployment
 
@@ -59,11 +74,10 @@ Utility scripts for working with skills, plugins, and repository maintenance.
 ## Path Notes
 
 Scripts use relative path resolution. In this repository:
-- Tools: library/tools/
-- Skills: library/skills/core-skills/, library/skills/extended-skills/
+- Tools: `library/tools/`
+- Skills: `library/skills/core-skills/`, `library/skills/extended-skills/`
 
-Scripts may reference RESOURCES_DIR/core-skills but skills are at
-RESOURCES_DIR/skills/core-skills. See MIGRATION-NOTES.md for details.
+Scripts correctly resolve to `RESOURCES_DIR/skills/core-skills`.
 
 ## File Dependencies
 

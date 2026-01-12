@@ -37,10 +37,12 @@ Use this pathway when you want to improve code before merging, catch security is
 
 ### Documentation
 
-| Doc | Location | When to Read |
-|-----|----------|--------------|
-| Claude Code Best Practices | [docs/best-practices/claude-code-best-practices.md](../docs/best-practices/claude-code-best-practices.md) | Understanding quality patterns in agentic coding |
-| Writing Tools for Agents | [docs/best-practices/writing-tools-for-agents.md](../docs/best-practices/writing-tools-for-agents.md) | When building tools that need to be maintainable |
+| Doc | Source | When to Read |
+|-----|--------|--------------|
+| Claude Code Best Practices | [anthropic.com/engineering](https://www.anthropic.com/engineering/claude-code-best-practices) | Understanding quality patterns in agentic coding |
+| Writing Tools for Agents | [anthropic.com/engineering](https://www.anthropic.com/engineering/writing-tools-for-agents) | When building tools that need to be maintainable |
+
+> **Tip**: See [docs/best-practices/](../docs/best-practices/) for a full index with summaries.
 
 ---
 

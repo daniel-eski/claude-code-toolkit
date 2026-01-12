@@ -120,25 +120,6 @@ Resources to help Claude understand itself better.
 
 ---
 
-## Local Copies
-
-For offline access or full-text search, comprehensive documentation is available at:
-
-```
-/Users/danieleskenazi/Desktop/Repos/Claude Code Docs with External plug ins/
-```
-
-| Folder | Content |
-|--------|---------|
-| `01-10/` | Claude Code official docs (49 files) |
-| `11-external-resources/` | Skills library (32 skills) |
-| `12-best-practices/` | Engineering blog articles (9 files) |
-| `13-external-resources-guide/` | External resource links (6 files) |
-
-**Documentation sync date**: January 6, 2026
-
----
-
 ## Contributing
 
 To update these indexes:

@@ -84,4 +84,4 @@ See [CATALOG.md](./CATALOG.md) for comprehensive documentation of each plugin in
 
 - [Plugin Development Guide](https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev)
 - [Claude Code Documentation](https://code.claude.com/docs)
-- [Plugin System Reference](/Users/danieleskenazi/Desktop/Repos/Claude Code Docs with External plug ins/07-plugins/)
+- [Plugin System Reference](https://code.claude.com/docs/en/plugins-reference)

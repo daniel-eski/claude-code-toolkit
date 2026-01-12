@@ -37,10 +37,12 @@ Use this pathway when working with version control: creating commits with good m
 
 ### Documentation
 
-| Doc | Location | When to Read |
-|-----|----------|--------------|
-| GitHub Actions | [docs/cicd-automation/github-actions.md](../docs/cicd-automation/github-actions.md) | Setting up CI/CD for your PRs |
-| CLI Reference | [docs/reference/cli-reference.md](../docs/reference/cli-reference.md) | Understanding built-in Git-related commands |
+| Doc | Source | When to Read |
+|-----|--------|--------------|
+| GitHub Actions | [code.claude.com](https://code.claude.com/docs/en/github-actions) | Setting up CI/CD for your PRs |
+| CLI Reference | [code.claude.com](https://code.claude.com/docs/en/cli-reference) | Understanding built-in Git-related commands |
+
+> **Tip**: See [docs/claude-code/](../docs/claude-code/) for a complete index of official documentation.
 
 ---
 

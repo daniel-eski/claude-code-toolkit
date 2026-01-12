@@ -79,7 +79,7 @@ Read `CLAUDE.md` for navigation guidance.
 
 This repository is under active development.
 
-**Current Phase**: Foundation
+**Current Phase**: Assessment Complete, Implementing Improvements
 **See**: `_workspace/progress/current-status.md`
 
 ## Contributing
@@ -88,5 +88,5 @@ Check `experimental/` for development work. See `_workspace/planning/repo-vision
 
 ## Related
 
-- Old repository: `/Users/danieleskenazi/Desktop/Repos/Claude Code Docs with External plug ins/`
-- Official docs: https://code.claude.com
+- Official Claude Code docs: https://code.claude.com
+- Anthropic engineering blog: https://anthropic.com/engineering

@@ -1,0 +1,28 @@
+{
+  "name": "workflow-optimizer",
+  "description": "A complete workflow system for complex projects with three loosely-coupled skills: (1) prompt-optimizer for clarifying objectives, (2) planning-with-files for persistent context management using Manus principles, and (3) agent-architect for designing optimal Claude Code configuration based on established context.",
+  "version": "3.0.0",
+  "author": {
+    "name": "Workflow Optimizer Contributors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daniel-eski/ClaudeCodeWorkflowOptimizerPluginBasicV1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "workflow",
+    "optimization",
+    "planning",
+    "context-management",
+    "manus",
+    "agent-architecture",
+    "subagents",
+    "hooks",
+    "skills",
+    "productivity"
+  ],
+  "claude-code": {
+    "minVersion": "1.0.30"
+  }
+}

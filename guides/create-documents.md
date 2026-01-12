@@ -37,10 +37,10 @@ You need to create formatted documents as part of your workflow - whether that's
 
 ### Documentation
 
-| Doc | Location | When to Read |
-|-----|----------|--------------|
-| Skills Guide | `docs/core-features/skills.md` | Understanding how skills work |
-| Document Creation README | `library/skills/core-skills/document-creation/README.md` | Overview of all document skills |
+| Doc | Source | When to Read |
+|-----|--------|--------------|
+| Skills Guide | [code.claude.com](https://code.claude.com/docs/en/skills) | Understanding how skills work |
+| Document Creation README | [library/skills/core-skills/document-creation/](../library/skills/core-skills/document-creation/) | Overview of all document skills |
 
 ---
 

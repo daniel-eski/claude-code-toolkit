@@ -31,6 +31,16 @@ This is provided as **reference links only** because:
 
 See [context-engineering/README.md](context-engineering/README.md) for the full list of topics and links.
 
+## External Skill Collections
+
+For additional skills beyond this repository, see:
+
+| Collection | Skills | Description |
+|------------|--------|-------------|
+| [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | ~70+ | Curated community skills across 9 categories: document processing, development tools, data analysis, business, communication, creative, productivity, collaboration, security |
+
+These are external resources - not downloaded locally. Cherry-pick specific skills using the fetch script below.
+
 ## Adding More Extended Skills
 
 Extended skills are for specialized domains that may not be needed by all users. To add a new extended skill:

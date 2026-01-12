@@ -8,8 +8,16 @@
 
 | Plugin | Description | Status |
 |--------|-------------|--------|
-| `workflow-optimizer-plugin/` | 3 skills (prompt-optimizer, planning-with-files, agent-architect) + 3 commands | WIP - needs testing |
-| `workflow-optimizer-kit/` | CLAUDE.md config, rules, /kickoff + /reflect commands, workflow-reflection skill | WIP - needs testing |
+| `workflow-optimizer-plugin/` | 3 skills (prompt-optimizer, planning-with-files, agent-architect) + 3 commands | ✅ GRADUATED (2026-01-10) |
+| `workflow-optimizer-kit/` | CLAUDE.md config, rules, /kickoff + /reflect commands, workflow-reflection skill | ✅ GRADUATED (2026-01-10) |
+
+### Graduated Items
+
+Both items have been evaluated and graduated:
+- **workflow-optimizer-plugin** → `library/plugins/local/workflow-optimizer/`
+- **workflow-optimizer-kit** → `library/configs/workflow-optimizer-kit/`
+
+The source copies remain here for reference and to track origin repositories.
 
 ---
 
@@ -92,4 +100,5 @@ Requirements for graduation:
 
 ## Status
 
-ACTIVE - Contains 2 WIP plugins cloned from owner's GitHub repos.
+GRADUATED - Both plugins evaluated and graduated to library/ (2026-01-10).
+Source copies retained for reference and origin tracking.

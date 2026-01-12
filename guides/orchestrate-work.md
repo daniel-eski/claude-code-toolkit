@@ -38,12 +38,14 @@ You have work that is too complex for a single linear conversation. This include
 
 ### Documentation
 
-| Doc | Location | When to Read |
-|-----|----------|--------------|
-| Multi-Agent Research System | [docs/best-practices/](../docs/best-practices/) | Anthropic's orchestrator-worker pattern case study |
-| Building Effective Agents | [docs/best-practices/](../docs/best-practices/) | Fundamental agent architecture patterns |
-| Context Engineering | [docs/best-practices/](../docs/best-practices/) | Managing context across multiple agents |
-| Subagents | [docs/core-features/subagents.md](../docs/core-features/subagents.md) | Claude Code's subagent capabilities |
+| Doc | Source | When to Read |
+|-----|--------|--------------|
+| Multi-Agent Research System | [anthropic.com/engineering](https://www.anthropic.com/engineering/multi-agent-research-system) | Anthropic's orchestrator-worker pattern case study |
+| Building Effective Agents | [anthropic.com/engineering](https://www.anthropic.com/engineering/building-effective-agents) | Fundamental agent architecture patterns |
+| Context Engineering | [anthropic.com/engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Managing context across multiple agents |
+| Subagents | [code.claude.com](https://code.claude.com/docs/en/sub-agents) | Claude Code's subagent capabilities |
+
+> **Tip**: See [docs/best-practices/](../docs/best-practices/) for summaries and [docs/claude-code/](../docs/claude-code/) for official docs.
 
 ---
 
