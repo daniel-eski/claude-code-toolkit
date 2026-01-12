@@ -8,9 +8,9 @@
 
 | Folder | Purpose | Status |
 |--------|---------|--------|
-| `docs/` | Documentation indexes and pointers | In Progress |
-| `library/` | Deployable assets (skills, plugins, tools) | In Progress |
-| `experimental/` | Work in progress | Placeholder |
+| `docs/` | Documentation indexes and pointers | Active (3 self-knowledge docs) |
+| `library/` | Deployable assets (skills, plugins, configs, tools) | Active (34 skills, 3 plugins, 1 config kit) |
+| `experimental/` | Reference copies of graduated items | Archive |
 | `_workspace/` | Development process (not end-user content) | Active |
 
 ---
@@ -50,7 +50,7 @@
 
 ### Experimental
 → Start at `experimental/README.md`
-- WIP plugins: `experimental/plugins/`
+- Reference copies of graduated plugins (originals now in `library/`)
 
 ### Development Process
 → Start at `_workspace/progress/current-status.md`
@@ -78,7 +78,7 @@
 
 ## Status
 
-**Current Phase**: Assessment Complete, Implementation Roadmap Created
-**Last Updated**: 2026-01-10
+**Current Phase**: Stable - Strategic Roadmap Complete
+**Last Updated**: 2026-01-12
 
-See `_workspace/progress/current-status.md` for details and next actions.
+See `_workspace/progress/current-status.md` for details and follow-up items.

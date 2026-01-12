@@ -116,7 +116,14 @@ Curated links to documentation, tutorials, and community resources.
 
 Resources to help Claude understand itself better.
 
-**Status**: Deferred - structure created, content pending.
+**Available documents** (3 of 5 complete):
+- `context-management.md` - How context windows work, limits, strategies
+- `subagent-mechanics.md` - How subagents are spawned, orchestration, constraints
+- `tool-execution.md` - How tools execute, permission model
+
+**Planned**:
+- `memory-systems.md` - CLAUDE.md, memory persistence
+- `capability-boundaries.md` - What Claude can/cannot do
 
 ---
 

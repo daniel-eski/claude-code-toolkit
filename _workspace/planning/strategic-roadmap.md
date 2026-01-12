@@ -322,4 +322,5 @@ See `_workspace/planning/maintenance-guide.md` for:
 
 *Roadmap created: 2026-01-09*
 *Roadmap completed: 2026-01-10*
+*Merged to main: 2026-01-12 (PR #1)*
 *Based on comprehensive 5-audit assessment*

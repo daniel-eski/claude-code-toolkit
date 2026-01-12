@@ -47,18 +47,18 @@ Read `CLAUDE.md` for navigation guidance.
 ├── docs/                 # Documentation indexes and pointers
 │   ├── claude-code/      # Official docs (→ code.claude.com)
 │   ├── best-practices/   # High-value guidance
-│   ├── self-knowledge/   # [Planned] Claude self-understanding
+│   ├── self-knowledge/   # Claude self-understanding (3 docs)
 │   └── external/         # Curated external resources
 │
 ├── library/              # Deployable assets
-│   ├── skills/           # Production-ready skills
-│   ├── plugins/          # Plugins (official, community, local)
-│   ├── configs/          # [Planned] Configuration templates
-│   └── tools/            # Utility scripts
+│   ├── skills/           # Production-ready skills (34)
+│   ├── plugins/          # Plugins (official, local)
+│   ├── configs/          # Configuration kits (1)
+│   └── tools/            # Utility scripts (11)
 │
-├── experimental/         # Work in progress
-│   ├── skills/           # WIP skills
-│   ├── plugins/          # WIP plugins
+├── experimental/         # Archive (graduated items)
+│   ├── skills/           # (empty)
+│   ├── plugins/          # Reference copies of graduated plugins
 │   └── ideas/            # Ideas backlog
 │
 └── _workspace/           # Development (not end-user content)
@@ -77,14 +77,16 @@ Read `CLAUDE.md` for navigation guidance.
 
 ## Status
 
-This repository is under active development.
+**Current Phase**: Stable - Strategic Roadmap Complete
+**Last Updated**: 2026-01-12
 
-**Current Phase**: Assessment Complete, Implementing Improvements
-**See**: `_workspace/progress/current-status.md`
+See `_workspace/progress/current-status.md` for details.
 
 ## Contributing
 
-Check `experimental/` for development work. See `_workspace/planning/repo-vision.md` for architectural context.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding skills, plugins, and documentation.
+
+For architectural context: `_workspace/planning/repo-vision.md`
 
 ## Related
 
