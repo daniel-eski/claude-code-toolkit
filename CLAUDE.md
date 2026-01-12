@@ -70,9 +70,13 @@
 
 ## For Agents Continuing Work
 
-1. Read `_workspace/progress/current-status.md` first
-2. Read `_workspace/planning/repo-vision.md` for full context
-3. Update `current-status.md` before ending your session
+1. Read `_workspace/progress/current-status.md` first (includes CRITICAL handoff notes)
+2. Read `_workspace/planning/repo-vision.md` for architectural context
+3. **Read `_workspace/backlog/` files** - rich context often missed by agents:
+   - `external-expansion.md` - Plugins/skills to evaluate
+   - `user-wip-projects.md` - User's WIP (safety system pending)
+   - `future-ideas.md` - Ideas for development
+4. Update `current-status.md` before ending your session
 
 ---
 

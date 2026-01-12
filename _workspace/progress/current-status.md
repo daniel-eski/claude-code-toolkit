@@ -346,6 +346,42 @@ Potential future enhancements (from backlog):
 
 ## Notes for Next Agent
 
+### ⚠️ CRITICAL: READ BEFORE PROCEEDING
+
+**DO NOT skip the backlog.** The `_workspace/backlog/` folder contains 6 files with rich context that previous agents have missed:
+
+| File | Key Content | Priority |
+|------|-------------|----------|
+| `external-expansion.md` | External plugins to evaluate (compound-engineering 4.3k★, claude-workflow-v2), ComposioHQ skills (~60), evaluation criteria | Medium |
+| `user-wip-projects.md` | User's WIP projects including Safety System (hooks, claude-code-safety-net) - NOT yet integrated | Variable |
+| `future-ideas.md` | /log_learnings command, safety system integration, documentation sync | Low |
+| `skills-organization.md` | Hybrid organization by source AND purpose | Low |
+| `local-copies.md` | Old repo had 49 official docs + 9 best practices locally | Low |
+| `purpose-navigation.md` | COMPLETED - for reference only | Done |
+
+**Also read these assessment documents:**
+- `_workspace/planning/FOLLOW-UP-ISSUES.md` - 5 issues from PR review
+- `_workspace/assessments/self-knowledge-accuracy-review.md` - Detailed accuracy concerns
+
+---
+
+### NEXT SESSION INSTRUCTIONS (2026-01-12)
+
+The user is adding **new plugins/assets to experimental/**. Before planning next steps:
+
+1. **Do a fresh comprehensive review** of the repository state
+2. **Review any new content** in `experimental/`
+3. **Read ALL backlog files** - they contain rich context
+4. **Develop a new prioritized plan** based on:
+   - What's been done (strategic roadmap complete)
+   - What's documented but not done (backlog, follow-up issues)
+   - What's new (incoming experimental content)
+   - User's actual priorities
+
+**Key gap identified**: Self-knowledge docs (3 of 5 complete) have accuracy issues - they present inference as fact. See `self-knowledge-accuracy-review.md`.
+
+---
+
 ### Current State (2026-01-12)
 
 The strategic roadmap has been **completed and merged to main** (PR #1). The repository is now in a **stable, maintainable state**.
