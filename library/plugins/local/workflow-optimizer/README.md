@@ -215,28 +215,28 @@ Each skill works independently:
 
 **From Git repository:**
 ```bash
-claude /plugin install https://github.com/your-username/workflow-optimizer-plugin
+claude /plugin install https://github.com/daniel-eski/workflow-optimizer
 ```
 
 **Local testing:**
 ```bash
-claude --plugin-dir /path/to/workflow-optimizer-plugin
+claude --plugin-dir /path/to/workflow-optimizer
 ```
 
 ### Option 2: Personal Skills
 
 Copy skills to your personal directory:
 ```bash
-cp -r workflow-optimizer-plugin/skills/prompt-optimizer ~/.claude/skills/
-cp -r workflow-optimizer-plugin/skills/planning-with-files ~/.claude/skills/
-cp -r workflow-optimizer-plugin/skills/agent-architect ~/.claude/skills/
+cp -r workflow-optimizer/skills/prompt-optimizer ~/.claude/skills/
+cp -r workflow-optimizer/skills/planning-with-files ~/.claude/skills/
+cp -r workflow-optimizer/skills/agent-architect ~/.claude/skills/
 ```
 
 ### Option 3: Project Skills
 
 Copy to project for team sharing:
 ```bash
-cp -r workflow-optimizer-plugin/skills/* .claude/skills/
+cp -r workflow-optimizer/skills/* .claude/skills/
 ```
 
 Commit to version control.
@@ -246,7 +246,7 @@ Commit to version control.
 ## File Structure
 
 ```
-workflow-optimizer-plugin/
+workflow-optimizer/
 ├── .claude-plugin/
 │   └── plugin.json
 ├── skills/
