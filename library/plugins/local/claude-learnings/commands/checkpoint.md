@@ -25,7 +25,7 @@ Name: $ARGUMENTS
         - Dirty: `git status --porcelain` (non-empty = dirty)
       - If no git, set git fields to null
 
-   c. Read current ~/.claude/learnings/queue.json
+   c. Note: A brief description of what you're about to do (infer from conversation context)
 
 3. Create checkpoint file at ~/.claude/learnings/checkpoints/[name].json:
    ```json
@@ -38,13 +38,13 @@ Name: $ARGUMENTS
        "commit": "[short SHA or null]",
        "dirty": [true/false or null]
      },
-     "learnings_snapshot": [copy of queue.json entries array]
+     "note": "[Brief description of what you're about to try]"
    }
    ```
 
 4. Output ONLY:
    ```
-   Checkpoint '[name]' saved. Restore with /restore [name]
+   Checkpoint '[name]' saved at [commit]. Restore with /restore [name]
    ```
 
 Do not elaborate. Do not suggest next steps.
