@@ -1,0 +1,8 @@
+{
+  "origin": "https://github.com/daniel-eski/claude-code-docs-and-external-plugins",
+  "origin_path": "11-external-resources/plugins/experimental/context-introspection",
+  "fetched_date": "2026-01-12",
+  "asset_type": "plugin",
+  "status": "experimental",
+  "notes": "Reconciled with toolkit version; added ROADMAP.md for development context"
+}

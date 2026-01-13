@@ -2,6 +2,11 @@
 
 > Understanding how my context window works enables better decisions about information handling, conversation management, and when to use features like subagents.
 
+> **About this document**: This is a practitioner's guide synthesizing official Claude Code
+> documentation with observed behavior and architectural inference. Claims are marked:
+> `[verified]` (documented in official sources), `[inferred]` (observed behavior, not formally documented),
+> or `[illustrative]` (example syntax—verify against current docs).
+
 ## How Context Works for Me
 
 My context window is finite working memory. Everything I need to process a request must fit within it, and it's shared across multiple concerns.
@@ -68,7 +73,7 @@ As we talk, the conversation history accumulates:
 - My responses
 - Tool invocations and their outputs (file contents can be large)
 
-When the context approaches capacity, history compacts automatically. Earlier exchanges get summarized to make room. This is why very long conversations may lose precise details from early on.
+When the context approaches capacity, history typically compacts automatically `[inferred]`. Earlier exchanges get summarized to make room. This is why very long conversations may lose precise details from early on.
 
 ---
 
@@ -126,9 +131,9 @@ Reference @docs/coding-standards.md for style.
 ```
 
 These imports are:
-- Resolved recursively (up to 5 levels deep)
-- Not evaluated inside code blocks
-- Discoverable via the `/memory` command
+- Resolved recursively (depth limit unverified; approximately 5 levels `[inferred]`)
+- Not evaluated inside code blocks `[verified]`
+- Discoverable via the `/memory` command `[verified]`
 
 ### Nested Discovery
 
@@ -218,6 +223,9 @@ Estimate context usage:
 | CLAUDE.md files | Measure actual |
 | Active skill | <5k tokens recommended |
 | Conversation room | The remainder |
+
+> **Note**: These token estimates are approximations based on observed patterns, not official
+> specifications `[inferred]`. Actual usage may vary by configuration and Claude Code version.
 
 If CLAUDE.md files total 10k tokens and you have 30 skills, that's ~13k tokens before any conversation begins.
 
@@ -363,3 +371,22 @@ My context window is finite working memory shared by instructions, conversation,
 5. **Budget deliberately** - Know what consumes context
 
 Understanding these mechanics helps me work more effectively and helps you structure projects for optimal collaboration.
+
+---
+
+## Sources and Confidence
+
+| Section | Confidence | Source |
+|---------|------------|--------|
+| Context window as working memory | VERIFIED | Claude Code architecture documentation |
+| CLAUDE.md hierarchy and precedence | VERIFIED | code.claude.com/docs/memory |
+| Import mechanism with `@` syntax | VERIFIED | Official Claude Code documentation |
+| `/memory` command availability | VERIFIED | Built-in Claude Code command |
+| Token budget estimates (~3k system, ~100/skill) | INFERRED | Author estimation from observed behavior |
+| Import recursion depth (~5 levels) | UNVERIFIED | Architectural assumption, not documented |
+| Auto-compaction of conversation history | INFERRED | Observed behavior, exact mechanism undocumented |
+| Path-specific rules with `paths:` frontmatter | VERIFIED | code.claude.com/docs/memory |
+| Subagent context isolation | VERIFIED | Subagent documentation |
+
+*Document created: 2026-01-10*
+*Confidence framework added: 2026-01-12*

@@ -65,7 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.0.4] - 2026-01-09 (Session 4)
+## [0.0.4] - 2026-01-09
 
 ### Added
 
@@ -82,7 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.0.3] - 2026-01-09 (Session 3)
+## [0.0.3] - 2026-01-09
 
 ### Added
 
@@ -106,7 +106,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.0.2] - 2026-01-09 (Session 2)
+## [0.0.2] - 2026-01-09
 
 ### Added
 
@@ -156,7 +156,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.0.1] - 2026-01-09 (Session 1)
+## [0.0.1] - 2026-01-09
 
 ### Added
 
@@ -191,11 +191,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 |--------|-------|
 | Working Skills | 32 |
 | Placeholder Skills | 2 |
-| Local Plugins | 3 |
+| Local Plugins | 5 |
 | Official Plugins Documented | 13 |
 | Configuration Kits | 1 |
 | Utility Tools | 11 |
-| Self-Knowledge Documents | 3 of 5 |
+| Self-Knowledge Documents | 5 |
 | Intent-Based Guides | 9 |
 | Assessment Documents | 6 |
 

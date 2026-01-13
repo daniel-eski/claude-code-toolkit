@@ -29,10 +29,12 @@ Support the repository owner in developing, testing, and eventually integrating 
   - workflow-reflection skill
 - **Status**: "probably needs more development after more testing" (user's words)
 
-### Safety System
+### Safety System - INTEGRATED
 - **Components**: Hooks and claude-code-safety-net integration
 - **Custom additions**: User has developed additional custom hooks
-- **Status**: "still WIP, just note I will eventually test and add in once it works well" (user's words)
+- **Status**: ~~"still WIP, just note I will eventually test and add in once it works well" (user's words)~~
+- **Integrated**: `library/plugins/local/guardrails/` (2026-01-12)
+- **Note**: User maintains active installation at `~/.claude/`. Toolkit copy provided for shareability.
 
 ## How to Help
 

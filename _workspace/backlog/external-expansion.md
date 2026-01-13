@@ -17,7 +17,7 @@ Expand the repository's indexed resources by evaluating and adding high-quality 
 - **What's known**: ~60 skills across 9 categories
 - **Categories**: Document Processing, Development & Code Tools, Data & Analysis, Business & Marketing, Communication & Writing, Creative & Media, Productivity & Organization, Collaboration & Project Management, Security & Systems
 - **Status**: Active community curation
-- **Notes**: User said "Need to evaluate - looks promising"
+- **Priority**: High - Large collection worth systematic evaluation
 
 #### Other Skills Sources
 - VoltAgent/awesome-claude-skills - Fork/similar collection
@@ -38,34 +38,39 @@ Expand the repository's indexed resources by evaluating and adding high-quality 
 - **Features**: Comprehensive workflow plugin with output modes
 - **Requirements**: Claude Code v1.0.33+, Python 3, Git
 
+#### jarrodwatts/claude-hud - CURRENTLY USING
+- **URL**: https://github.com/jarrodwatts/claude-hud
+- **What it does**: Real-time session info in terminal statusline
+- **Features**: Context usage bar (color-coded), tool activity tracking, git status, usage monitoring (Pro/Max), todo progress
+- **Configuration**: Three presets (Full/Essential/Minimal) + granular control via `/claude-hud:configure`
+- **Status**: ✅ Installed and active in user's setup
+- **Notes**: Integrates via `statusLine.command` in settings.json
+
 #### Other Plugin Sources
-- jarrodwatts/claude-code-config - "Maybe some?" (user's note)
-- vibeforge1111/vibeship-spawner-skills - "Maybe a few" (user's note)
+- jarrodwatts/claude-code-config - Configuration examples, pending evaluation
+- vibeforge1111/vibeship-spawner-skills - Skill spawning, pending evaluation
 
 ### Official Anthropic Plugins
 - **URL**: https://github.com/anthropics/claude-plugins-official
 - **What's known**: 36 plugins total in curated marketplace
-- **Status**: User wants all official ones "explained and made easy to navigate"
+- **Status**: 13 already documented in `library/plugins/official/CATALOG.md`; remaining 23 pending documentation
 
 ## Evaluation Criteria
 
-Before adding a resource:
+**See `library/EVALUATION-FRAMEWORK.md` for the complete evaluation framework.**
 
-### Quality
-- [ ] Well-documented
-- [ ] Actually works
+Quick checklist:
+- [ ] Works without errors
+- [ ] Well-documented (README)
 - [ ] Actively maintained
-- [ ] Good code quality
+- [ ] No security concerns
+- [ ] Non-redundant with existing content
 
-### Usefulness
-- [ ] Solves a real problem
-- [ ] Not redundant with existing resources
-- [ ] Worth the index space
-
-### Trust/Safety
-- [ ] No obvious security issues
-- [ ] Known/reputable source
-- [ ] Appropriate permissions model
+Decision matrix:
+- Score 25-30 → Add to library/
+- Score 18-24 → Index only (reference here)
+- Score 12-17 → Defer
+- Score <12 → Skip
 
 ## Process for Adding Resources
 
@@ -106,4 +111,7 @@ When new resources are found:
 
 ## Status
 
-DEFERRED - Focus on migrating existing content first; expansion comes after.
+**ACTIVE** - Evaluation framework created (`library/EVALUATION-FRAMEWORK.md`). Resources above are candidates for evaluation using the framework.
+
+**Already in use**: claude-hud (installed in user's setup)
+**Next priority**: compound-engineering-plugin (4.3k stars), ComposioHQ skills collection

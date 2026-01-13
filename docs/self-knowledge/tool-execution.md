@@ -2,6 +2,11 @@
 
 > How I interact with the outside world through tools.
 
+> **About this document**: This is a practitioner's guide synthesizing official Claude Code
+> documentation with observed behavior and architectural inference. Claims are marked:
+> `[verified]` (documented in official sources), `[inferred]` (observed behavior, not formally documented),
+> or `[illustrative]` (example syntax—verify against current docs).
+
 ## Introduction
 
 When I work on tasks, I don't directly manipulate files or run commands - I invoke tools that execute on my behalf. Understanding this execution model helps me make better decisions about which tools to use, when to use them, and how to handle the results.
@@ -118,9 +123,10 @@ Not all actions are equal. Some execute immediately; others require approval.
 
 ### How Hooks Affect Permissions
 
-Hooks can modify the permission flow:
+Hooks can modify the permission flow `[verified]`:
 
 ```json
+// [illustrative] - verify exact JSON structure against current Claude Code docs
 {
   "hookSpecificOutput": {
     "permissionDecision": "allow",
@@ -135,6 +141,10 @@ A PreToolUse hook can:
 - **ask**: Let the normal permission flow happen (default)
 
 ### Working Within Constraints
+
+> **Note**: Permission behavior described here reflects typical configurations. Actual constraints
+> depend on hook configuration, enterprise policies, sandbox settings, and file sensitivity
+> classifications `[inferred]`.
 
 When I'm in a sandboxed environment:
 - Network access may be restricted
@@ -219,7 +229,7 @@ Each tool has a purpose. Using the right one improves efficiency and accuracy.
 | Edit existing file | Edit | Read + Write (unless rewriting entirely) |
 | Run commands | Bash | None (it's the only option) |
 
-**Why this matters**: Specialized tools are optimized for their purpose, handle edge cases, and integrate properly with permissions.
+**Why this matters**: Specialized tools are optimized for their purpose, handle edge cases, and integrate efficiently with the permission model `[verified]`. Some read-only operations may be pre-approved based on configuration, but all tools go through the permission flow.
 
 ### Handling Tool Failures
 
@@ -268,7 +278,7 @@ For very long outputs, I might use targeted reads (specific line ranges) or sear
 ### Using Bash When Specialized Tools Exist
 
 **Mistake**: `cat /path/to/file` instead of Read
-**Why it's wrong**: Bypasses proper file handling, permission model, and output formatting
+**Why it's wrong**: Misses optimizations like proper file handling, integrated permission checks, and consistent output formatting
 **Better**: Use Read for reading files, Grep for searching, Glob for finding
 
 ### Not Checking File Existence Before Editing
@@ -379,4 +389,23 @@ Understanding these mechanics helps me work more effectively and design better s
 
 - `context-management.md` - How context windows work and their limits
 - `subagent-mechanics.md` - How subagents are spawned and their constraints
-- Official documentation: `02-core-features/hooks.md` and `02-core-features/hooks-guide.md`
+- Official hooks documentation at code.claude.com
+
+---
+
+## Sources and Confidence
+
+| Section | Confidence | Source |
+|---------|------------|--------|
+| Agentic loop (observe-think-act) | VERIFIED | Claude Code architecture documentation |
+| Tool invocation flow with hooks | VERIFIED | Hooks documentation at code.claude.com |
+| PreToolUse/PostToolUse hook events | VERIFIED | Official hooks guide |
+| Permission model (reads vs writes) | VERIFIED | General behavior, documented |
+| Hook permission decision JSON format | ILLUSTRATIVE | Example format, verify exact structure |
+| Sandboxing constraints | INFERRED | Environment-specific, varies by configuration |
+| Specialized tools vs Bash efficiency | VERIFIED | Documented tool recommendations |
+| Parallel tool invocation | VERIFIED | Tool documentation |
+| Tool failure patterns | INFERRED | Observed error messages and behavior |
+
+*Document created: 2026-01-10*
+*Confidence framework added: 2026-01-12*

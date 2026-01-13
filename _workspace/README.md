@@ -20,9 +20,9 @@ This folder contains:
 |--------|---------|------------|
 | `planning/` | Vision, architecture | Read `repo-vision.md` for context |
 | `progress/` | Status, session logs | Read `current-status.md` first |
-| `decisions/` | Decision records | ADR-style records of key decisions |
 | `backlog/` | Future work items | Deferred tasks with context |
-| `notes/` | Scratch space | Temporary notes, learnings |
+| `assessments/` | Audit reports | Historical reference from reviews |
+| `archive/` | Completed artifacts | PR materials, session plans |
 
 ## For Agents Continuing Work
 

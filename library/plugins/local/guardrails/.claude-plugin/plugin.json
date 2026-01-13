@@ -1,0 +1,19 @@
+{
+  "name": "claude-guardrails",
+  "version": "1.0.0",
+  "description": "Defense-in-depth safety hooks for Claude Code - blocks dangerous file and git operations",
+  "author": {
+    "name": "Daniel Eskenazi"
+  },
+  "homepage": "https://github.com/yourusername/claude-guardrails",
+  "repository": "https://github.com/yourusername/claude-guardrails.git",
+  "license": "MIT",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "safety",
+    "hooks",
+    "guardrails",
+    "security"
+  ]
+}

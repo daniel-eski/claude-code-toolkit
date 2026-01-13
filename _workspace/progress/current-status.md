@@ -2,8 +2,8 @@
 
 > **DYNAMIC DOCUMENT** - Update this after each work session.
 
-**Last Updated**: 2026-01-12 (Session 8 - Post-Merge Documentation Hygiene)
-**Current Phase**: STABLE - Strategic Roadmap Merged to Main
+**Last Updated**: 2026-01-12 (Session 9 Continued - Quick Wins + Evaluation Framework)
+**Current Phase**: STABLE - Evaluation Framework Created, Quick Wins Complete
 
 ---
 
@@ -199,11 +199,56 @@
   - After changes, monthly, quarterly task documentation
   - Tool dependencies and health check procedures
 
+### 2026-01-12 Session 9+ (Quick Wins + Evaluation Framework)
+- [x] **Phase 1A - HUD Plugin Documentation**: Added jarrodwatts/claude-hud to external-expansion.md
+  - Documented features, configuration presets, current installation status
+- [x] **Phase 1B - CONTRIBUTING.md**: Verified config kit section already complete
+- [x] **Phase 1C - Plugin vs Kit Guidance**: Added "Choosing Between Plugin and Config Kit" to configs/README.md
+  - Clear decision table comparing workflow-optimizer-plugin vs workflow-optimizer-kit
+- [x] **Phase 1D - AWS Skills Update**: Updated all 4 AWS skills with corrected upstream paths
+  - Upstream restructured from `skills/{name}/` to `plugins/{name}/skills/{name}/`
+  - Skills now fetch correctly from GitHub
+- [x] **Phase 2 - Evaluation Framework Created**: `library/EVALUATION-FRAMEWORK.md` (210 lines)
+  - Quick assessment checklist (5 min)
+  - Detailed assessment: Quality, Fit, Trust scores (0-10 each)
+  - Decision matrix: 25-30=Add, 18-24=Index, 12-17=Defer, <12=Skip
+  - Evaluation record template
+  - Workflow guides for plugins, skills, config kits
+- [x] **Phase 2 - Community Plugins README**: Updated to reference evaluation framework
+- [x] **Phase 3 - Broken Links Analysis**: Analyzed all 37 broken links in library/
+  - 13 links in code block examples (false positives - teaching examples)
+  - 24 links in AWS skills referencing upstream structure (expected - we only copy SKILL.md)
+  - **Result**: All broken links acceptable, no fixes required
+
+### 2026-01-12 Session 9 (Self-Knowledge + Plugin Integration)
+- [x] **Self-Knowledge Accuracy Fixes**: Added confidence framework to 3 existing documents
+  - Front matter explaining document nature
+  - Inline `[verified]`, `[inferred]`, `[illustrative]` markers
+  - "Sources and Confidence" appendix table for each
+  - Fixed specific accuracy issues (speculation stated as fact)
+- [x] **New Self-Knowledge Documents**: Created 2 remaining documents with confidence framework
+  - `docs/self-knowledge/memory-systems.md` (~360 lines) - CLAUDE.md, persistence, /memory
+  - `docs/self-knowledge/capability-boundaries.md` (~370 lines) - What Claude can/cannot do
+- [x] **Context Introspection Update**: Added ROADMAP.md and experimental status warning
+- [x] **Guardrails Plugin Integration**: Full copy to `library/plugins/local/guardrails/`
+  - Defense-in-depth safety hooks (path-guardian, git-guardian, audit-logger)
+  - CLI tool, configuration, documentation
+  - `.source` file for provenance tracking
+- [x] **Claude-Learnings Plugin Integration**: Copy with restructure to `library/plugins/local/claude-learnings/`
+  - Moved `plugin.json` to `.claude-plugin/plugin.json` for toolkit consistency
+  - 6 commands: `/log`, `/log_error`, `/log_success`, `/review-learnings`, `/checkpoint`, `/restore`
+  - `.source` file for provenance tracking
+- [x] **Documentation Updates**: Updated all catalogs and backlogs
+  - `library/plugins/local/README.md` - Added new plugins (3 → 5)
+  - `library/README.md` - Updated counts
+  - `_workspace/backlog/future-ideas.md` - Marked items COMPLETED
+  - `_workspace/backlog/user-wip-projects.md` - Marked Safety System INTEGRATED
+
 ---
 
 ## What's In Progress
 
-Nothing currently in progress. All roadmap phases complete.
+Nothing currently in progress. All planned work complete.
 
 ---
 
@@ -287,6 +332,8 @@ Potential future enhancements (from backlog):
 | 2026-01-10 | 6 | Claude Opus 4.5 | Phase E sustainability | Created CHANGELOG, CONTRIBUTING, maintenance guide |
 | 2026-01-12 | 7 | Claude Opus 4.5 | **PR Review** | Critical review of feature branch; fixed README paths, CHANGELOG URLs; created follow-up issues doc |
 | 2026-01-12 | 8 | Claude Opus 4.5 | **Post-Merge Hygiene** | Merged to main; documentation audit and updates |
+| 2026-01-12 | 9 | Claude Opus 4.5 | **Self-Knowledge + Plugin Integration** | Completed 5/5 self-knowledge docs with confidence framework; added guardrails and claude-learnings plugins |
+| 2026-01-12 | 9+ | Claude Opus 4.5 | **Quick Wins + Evaluation Framework** | 4 quick wins; evaluation framework; broken links analysis |
 
 ---
 
@@ -323,11 +370,11 @@ Potential future enhancements (from backlog):
 
 ### Content Counts (as of 2026-01-12)
 - **Skills**: 32 working + 2 placeholders = 34 total SKILL.md files
-- **Local Plugins**: 3 (claude-code-advisor, context-introspection, workflow-optimizer)
+- **Local Plugins**: 5 (claude-code-advisor, context-introspection, workflow-optimizer, guardrails, claude-learnings)
 - **Config Kits**: 1 (workflow-optimizer-kit)
 - **Official Plugins**: 13 documented in CATALOG.md
 - **Utility Tools**: 11 scripts (all verified working)
-- **Self-Knowledge Docs**: 3 of 5 complete (context-management, subagent-mechanics, tool-execution)
+- **Self-Knowledge Docs**: 5 of 5 complete (all with confidence framework)
 - **Intent Guides**: 9 pathway documents
 
 ### File Summary
@@ -335,11 +382,11 @@ Potential future enhancements (from backlog):
 |----------|-------|---------|
 | `guides/` | 9 | Intent-based navigation pathways |
 | `library/skills/` | 34 | Production skills (32 working + 2 placeholders) |
-| `library/plugins/local/` | 3 | Local plugins (claude-code-advisor, context-introspection, workflow-optimizer) |
+| `library/plugins/local/` | 5 | Local plugins (claude-code-advisor, context-introspection, workflow-optimizer, guardrails, claude-learnings) |
 | `library/plugins/official/` | 1 CATALOG | Official plugin documentation (13 plugins) |
 | `library/configs/` | 1 | Configuration kits (workflow-optimizer-kit) |
 | `library/tools/` | 11 | Utility scripts |
-| `docs/self-knowledge/` | 3 | Claude self-understanding documentation |
+| `docs/self-knowledge/` | 5 | Claude self-understanding documentation (all with confidence framework) |
 | `experimental/plugins/` | 2 repos | Reference copies of graduated plugins |
 
 ---
@@ -353,32 +400,29 @@ Potential future enhancements (from backlog):
 | File | Key Content | Priority |
 |------|-------------|----------|
 | `external-expansion.md` | External plugins to evaluate (compound-engineering 4.3k★, claude-workflow-v2), ComposioHQ skills (~60), evaluation criteria | Medium |
-| `user-wip-projects.md` | User's WIP projects including Safety System (hooks, claude-code-safety-net) - NOT yet integrated | Variable |
-| `future-ideas.md` | /log_learnings command, safety system integration, documentation sync | Low |
+| `user-wip-projects.md` | User's WIP projects; Safety System now ✅ INTEGRATED | Variable |
+| `future-ideas.md` | ~~`/log_learnings`~~ ✅, ~~safety system~~ ✅, documentation sync | Low |
 | `skills-organization.md` | Hybrid organization by source AND purpose | Low |
 | `local-copies.md` | Old repo had 49 official docs + 9 best practices locally | Low |
 | `purpose-navigation.md` | COMPLETED - for reference only | Done |
 
 **Also read these assessment documents:**
-- `_workspace/planning/FOLLOW-UP-ISSUES.md` - 5 issues from PR review
-- `_workspace/assessments/self-knowledge-accuracy-review.md` - Detailed accuracy concerns
+- `_workspace/archive/pr-artifacts/FOLLOW-UP-ISSUES.md` - 5 issues from PR review (all resolved)
+- `_workspace/assessments/self-knowledge-accuracy-review.md` - Detailed accuracy concerns (addressed)
 
 ---
 
-### NEXT SESSION INSTRUCTIONS (2026-01-12)
+### NEXT SESSION INSTRUCTIONS (Post Session 9)
 
-The user is adding **new plugins/assets to experimental/**. Before planning next steps:
+Session 9 completed major improvements:
+- **Self-Knowledge**: All 5 docs complete with confidence framework (verified/inferred/illustrative markers + sources appendix)
+- **Plugins**: Added guardrails (safety hooks) and claude-learnings (learning capture)
+- **Documentation**: All catalogs and backlogs updated
 
-1. **Do a fresh comprehensive review** of the repository state
-2. **Review any new content** in `experimental/`
-3. **Read ALL backlog files** - they contain rich context
-4. **Develop a new prioritized plan** based on:
-   - What's been done (strategic roadmap complete)
-   - What's documented but not done (backlog, follow-up issues)
-   - What's new (incoming experimental content)
-   - User's actual priorities
-
-**Key gap identified**: Self-knowledge docs (3 of 5 complete) have accuracy issues - they present inference as fact. See `self-knowledge-accuracy-review.md`.
+For next session:
+1. Run `validate-links.sh` to check for new broken links
+2. Consider plugin load testing with `claude --plugin-dir`
+3. Review remaining backlog items in `_workspace/backlog/`
 
 ---
 
@@ -397,14 +441,12 @@ The strategic roadmap has been **completed and merged to main** (PR #1). The rep
 
 ### Post-Merge Follow-Up Items
 
-See `_workspace/planning/FOLLOW-UP-ISSUES.md` for 5 lower-priority issues identified during PR review:
-1. Add confidence levels to self-knowledge docs (medium priority)
-2. Complete CONTRIBUTING.md config kit section (low priority)
-3. Address 46 broken links in skills/plugins (low priority)
-4. Update stale AWS skills from upstream (low priority)
-5. Clarify workflow-optimizer vs kit usage guidance (low priority)
-
-See `_workspace/assessments/self-knowledge-accuracy-review.md` for detailed analysis of accuracy concerns.
+**All 5 follow-up issues have been resolved** (archived to `_workspace/archive/pr-artifacts/FOLLOW-UP-ISSUES.md`):
+1. ✅ Confidence levels added to all 5 self-knowledge docs
+2. ✅ CONTRIBUTING.md config kit section verified complete
+3. ✅ Broken links analyzed - all acceptable (code examples + upstream refs)
+4. ✅ AWS skills updated with corrected upstream paths
+5. ✅ Plugin vs kit guidance added to configs/README.md
 
 ### Key Documentation Created in Phase E
 
@@ -419,10 +461,10 @@ See `_workspace/assessments/self-knowledge-accuracy-review.md` for detailed anal
 | Category | Count | Status |
 |----------|-------|--------|
 | Skills | 32 working + 2 placeholders | Active |
-| Local Plugins | 3 (claude-code-advisor, context-introspection, workflow-optimizer) | Active |
+| Local Plugins | 5 (claude-code-advisor, context-introspection, workflow-optimizer, guardrails, claude-learnings) | Active |
 | Official Plugins | 13 documented | Complete |
 | Config Kits | 1 (workflow-optimizer-kit) | Active |
-| Self-Knowledge Docs | 3 of 5 | 60% Complete |
+| Self-Knowledge Docs | 5 of 5 (with confidence framework) | 100% Complete |
 | Utility Tools | 11 scripts | All Working |
 
 ### Key Tools Available
@@ -447,7 +489,7 @@ See `_workspace/planning/maintenance-guide.md` for:
 ### Future Work (Optional)
 
 From backlog, if desired:
-- Complete remaining 2 self-knowledge documents
+- ~~Complete remaining 2 self-knowledge documents~~ ✅ COMPLETED Session 9
 - Explore additional external skill collections
 - Implement CI/CD from maintenance guide templates
 

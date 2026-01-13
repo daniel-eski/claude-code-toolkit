@@ -73,7 +73,31 @@ cp -r config/commands ~/.claude/commands
 
 See `workflow-optimizer-kit/README.md` for full documentation.
 
-Source: Graduated from `experimental/plugins/` (2026-01-10)
+---
+
+## Choosing Between Plugin and Config Kit
+
+**workflow-optimizer-plugin** vs **workflow-optimizer-kit** - they complement each other:
+
+| Use Case | Recommendation |
+|----------|----------------|
+| I want reusable skills for any project | **Plugin** (`library/plugins/local/workflow-optimizer/`) |
+| I want to change Claude's behavior globally | **Kit** (this config) |
+| I want explicit /commands | Both have different commands |
+| I want automatic skill activation | **Plugin** (skills auto-trigger) |
+| I want CLAUDE.md behavioral shaping | **Kit** (CLAUDE.md instructions) |
+
+**Can I use both?** Yes! They work well together:
+- **Plugin** provides skills: prompt-optimizer, planning-with-files, agent-architect
+- **Kit** provides meta-cognitive behavior via CLAUDE.md + `/kickoff`, `/reflect` commands
+
+**Quick comparison**:
+| Feature | Plugin | Kit |
+|---------|--------|-----|
+| Skills | 3 auto-triggering skills | 1 skill (workflow-reflection) |
+| Commands | `/workflow-optimizer:*` | `/kickoff`, `/reflect` |
+| Behavioral shaping | No | Yes (via CLAUDE.md) |
+| Installation | `--plugin-dir` | Copy to `~/.claude/` |
 
 ---
 
@@ -91,4 +115,3 @@ Configuration kits provide ready-to-use templates for:
 ## Status
 
 ACTIVE - 1 configuration kit available.
-Graduated from experimental/ (2026-01-10)

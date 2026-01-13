@@ -35,8 +35,8 @@ This is NOT just links to docs - it's synthesized knowledge.
 | `context-management.md` | ✅ Complete | How context windows work, limits, strategies |
 | `subagent-mechanics.md` | ✅ Complete | How subagents are spawned, orchestration, constraints |
 | `tool-execution.md` | ✅ Complete | How tools execute, permission model |
-| `memory-systems.md` | Planned | CLAUDE.md, memory persistence |
-| `capability-boundaries.md` | Planned | What Claude can/cannot do |
+| `memory-systems.md` | ✅ Complete | CLAUDE.md, memory persistence |
+| `capability-boundaries.md` | ✅ Complete | What Claude can/cannot do |
 
 ## Quality Standards
 
@@ -54,4 +54,11 @@ Content here must be:
 
 ## Status
 
-IN PROGRESS - Three priority documents completed (context-management, subagent-mechanics, tool-execution). Two remaining documents planned for future work.
+COMPLETE - All five self-knowledge documents finished with confidence framework applied.
+
+All documents include:
+- Front matter explaining document nature and confidence markers
+- Inline `[verified]`, `[inferred]`, `[illustrative]` confidence markers
+- "Sources and Confidence" appendix table
+
+*Last updated: 2026-01-12*
