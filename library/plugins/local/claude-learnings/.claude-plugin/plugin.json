@@ -1,0 +1,41 @@
+{
+  "name": "claude-learnings",
+  "version": "1.0.0",
+  "description": "Capture learnings, errors, and successes during Claude Code sessions. Review and sync to CLAUDE.md for persistent improvement.",
+  "author": "Daniel Eskenazi",
+  "repository": "https://github.com/danieleskenazi/claude-learnings-plugin",
+  "keywords": [
+    "learnings",
+    "feedback",
+    "logging",
+    "workflow",
+    "checkpoint",
+    "memory"
+  ],
+  "commands": {
+    "log": {
+      "description": "Log a learning, insight, or pattern for later review",
+      "file": "commands/log.md"
+    },
+    "log_error": {
+      "description": "Log an error or mistake for later review (forces type to warning)",
+      "file": "commands/log_error.md"
+    },
+    "log_success": {
+      "description": "Log a success or what worked well for later review (forces type to success)",
+      "file": "commands/log_success.md"
+    },
+    "review-learnings": {
+      "description": "Review pending learnings and sync approved ones to CLAUDE.md",
+      "file": "commands/review-learnings.md"
+    },
+    "checkpoint": {
+      "description": "Save current state for potential rewind",
+      "file": "commands/checkpoint.md"
+    },
+    "restore": {
+      "description": "View checkpoint state and optionally restore learnings queue",
+      "file": "commands/restore.md"
+    }
+  }
+}

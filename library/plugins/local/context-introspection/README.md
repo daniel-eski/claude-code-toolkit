@@ -1,5 +1,8 @@
 # Context Introspection Plugin
 
+> ⚠️ **Experimental**: This plugin is functional but under active development.
+> See [ROADMAP.md](ROADMAP.md) for planned enhancements and known limitations.
+
 A Claude Code plugin that generates a comprehensive report of all context sources influencing your current session.
 
 ## The Problem

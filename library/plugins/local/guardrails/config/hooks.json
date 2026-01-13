@@ -1,0 +1,41 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.bun/bin/bun $HOME/.claude/plugins/claude-code-safety-net/dist/bin/cc-safety-net.js --claude-code",
+            "timeout": 10000
+          },
+          {
+            "type": "command",
+            "command": "$HOME/.bun/bin/bun run $HOME/.claude/hooks/git-guardian.ts",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.bun/bin/bun run $HOME/.claude/hooks/path-guardian.ts",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.bun/bin/bun run $HOME/.claude/hooks/audit-logger.ts",
+            "timeout": 2000
+          }
+        ]
+      }
+    ]
+  }
+}

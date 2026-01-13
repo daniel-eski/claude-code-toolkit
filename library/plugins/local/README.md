@@ -9,7 +9,9 @@
 | Plugin | Purpose | Commands |
 |--------|---------|----------|
 | `claude-code-advisor/` | Strategic advisor for Claude Code features | `/cc-advisor`, `/cc-analyze`, `/cc-verify`, `/cc-design` |
+| `claude-learnings/` | Capture learnings, errors, and successes | `/log`, `/log_error`, `/log_success`, `/review-learnings`, `/checkpoint`, `/restore` |
 | `context-introspection/` | Session context reporting | `/context-introspection:report` |
+| `guardrails/` | Defense-in-depth safety hooks | CLI: `guardrails status`, `guardrails activate`, etc. |
 | `workflow-optimizer/` | Complete workflow system for complex projects | `/workflow-optimizer:optimize`, `/workflow-optimizer:plan-files`, `/workflow-optimizer:architect` |
 
 ---
@@ -67,6 +69,63 @@ context-introspection/
 
 ---
 
+## claude-learnings
+
+Zero-friction capture of learnings, errors, and successes during sessions. Human-gated review before anything gets added to CLAUDE.md.
+
+### Commands
+- `/log [entry]` - Quick capture with auto-detected type
+- `/log_error [entry]` - Capture errors/mistakes (forces "warning" type)
+- `/log_success [entry]` - Capture what worked (forces "success" type)
+- `/review-learnings` - Batch review and sync to CLAUDE.md
+- `/checkpoint [name]` - Save state for potential rewind
+- `/restore [name]` - View/restore from checkpoint
+
+### Structure
+```
+claude-learnings/
+├── .claude-plugin/
+│   └── plugin.json
+├── commands/         # 6 slash commands
+├── docs/             # Installation and testing docs
+├── examples/         # Queue and checkpoint examples
+└── README.md
+```
+
+---
+
+## guardrails
+
+Defense-in-depth safety hooks that:
+- Block file writes outside your working directory
+- Block pushes to main/master branches
+- Block force pushes (allows `--force-with-lease`)
+- Log all tool calls for audit trail
+
+### CLI Commands
+```bash
+guardrails status      # Check if hooks are active
+guardrails activate    # Enable hooks
+guardrails deactivate  # Disable hooks
+guardrails logs        # View audit logs
+guardrails override add path /path  # Add override
+```
+
+### Structure
+```
+guardrails/
+├── .claude-plugin/
+│   └── plugin.json
+├── src/hooks/        # path-guardian, git-guardian, audit-logger
+├── bin/guardrails    # CLI tool
+├── config/           # hooks.json, overrides.example.json
+├── docs/             # Configuration, security, troubleshooting
+├── scripts/          # install.sh, uninstall.sh
+└── README.md
+```
+
+---
+
 ## workflow-optimizer
 
 A complete workflow system for complex projects with three loosely-coupled skills:
@@ -106,8 +165,6 @@ workflow-optimizer/
 └── CHANGELOG.md
 ```
 
-Source: Graduated from `experimental/plugins/` (2026-01-10)
-
 ---
 
 ## Installation
@@ -145,6 +202,4 @@ For WIP plugins, see `experimental/plugins/`.
 
 ## Status
 
-3 production plugins available.
-- 2 migrated from old repo (2026-01-09)
-- 1 graduated from experimental/ (2026-01-10)
+5 production plugins available.

@@ -1,0 +1,22 @@
+{
+  "name": "before-refactor",
+  "created": "2026-01-09T14:30:00Z",
+  "cwd": "/Users/example/myproject",
+  "git": {
+    "branch": "feature/user-auth",
+    "commit": "abc1234",
+    "dirty": false
+  },
+  "learnings_snapshot": [
+    {
+      "id": "a1b2c3d4",
+      "timestamp": "2026-01-09T10:30:00Z",
+      "type": "pattern",
+      "raw": "Always run tests before pushing to main branch",
+      "context": {
+        "cwd": "/Users/example/myproject"
+      },
+      "status": "pending"
+    }
+  ]
+}

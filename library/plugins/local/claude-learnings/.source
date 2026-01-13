@@ -1,0 +1,8 @@
+{
+  "origin": "local",
+  "origin_path": "/Users/danieleskenazi/Desktop/Repos/claude-learnings-plugin",
+  "fetched_date": "2026-01-12",
+  "asset_type": "plugin",
+  "status": "production",
+  "notes": "Implements /log_learnings concept from future-ideas.md backlog. Manifest restructured: plugin.json moved to .claude-plugin/plugin.json for toolkit consistency."
+}

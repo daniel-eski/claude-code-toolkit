@@ -1,0 +1,9 @@
+{
+  "origin": "https://github.com/daniel-eski/claude-guardrails",
+  "origin_path": "/",
+  "fetched_date": "2026-01-12",
+  "source_commit": "a5906a103e4ee3d4b6b2dc83333c325adbb2d559",
+  "asset_type": "plugin",
+  "status": "production",
+  "notes": "Defense-in-depth safety hooks. User has active installation at ~/.claude/"
+}

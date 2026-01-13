@@ -1,0 +1,19 @@
+{
+  "_comment": "Example overrides file - copy to ~/.claude/guardrails-overrides.json and customize",
+
+  "allowed_paths": [
+    "/Users/you/allowed-external-dir/**",
+    "/Users/you/specific-file.txt"
+  ],
+
+  "allowed_commands": [
+    "git push origin release-branch"
+  ],
+
+  "allowed_branches": [
+    "release-*",
+    "hotfix-*"
+  ],
+
+  "notes": "Optional notes to remind yourself why these overrides exist"
+}
