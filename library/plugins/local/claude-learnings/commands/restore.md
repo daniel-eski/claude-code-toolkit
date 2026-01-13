@@ -1,5 +1,5 @@
 ---
-description: View checkpoint state and optionally restore learnings queue
+description: View checkpoint state and optionally see git restore commands
 argument-hint: [checkpoint-name]
 ---
 
@@ -11,7 +11,7 @@ Name: $ARGUMENTS
 
 1. If no name provided:
    - List available checkpoints from ~/.claude/learnings/checkpoints/
-   - Show each with created date
+   - Show each with created date and note
    - Respond: "Available checkpoints: [list]. Usage: /restore [name]"
    - Stop.
 
@@ -19,7 +19,6 @@ Name: $ARGUMENTS
    - If not found, list available checkpoints and stop.
 
 3. Gather current state for comparison:
-   - Current learnings queue entry count
    - Current git state (if in repo)
 
 4. Display checkpoint info:
@@ -28,16 +27,15 @@ Name: $ARGUMENTS
    Created: [timestamp]
    Directory: [cwd]
 
+   ### Note
+   [What you were about to try]
+
    ### Git State at Checkpoint
    Branch: [branch]
    Commit: [commit]
    Status: [clean/dirty]
 
-   ### Learnings at Checkpoint
-   [N] entries
-
    ### Current State
-   Learnings queue: [M] entries ([diff from checkpoint])
    Git: [current branch] @ [current commit]
    ```
 
@@ -51,14 +49,15 @@ Name: $ARGUMENTS
    ⚠️ WARNING: This will discard uncommitted changes
    ```
 
-6. Use AskUserQuestion to ask:
-   "Restore learnings queue to checkpoint state? (Currently [M] entries, checkpoint has [N])"
-   Options: Yes / No
+6. Remind about saved learnings:
+   ```
+   Note: Any reflections saved with /save-learnings persist in .claude/learnings/
+   and are NOT affected by git restore or conversation rewind.
+   ```
 
-7. On **Yes**:
-   - Read checkpoint's learnings_snapshot
-   - Write to ~/.claude/learnings/queue.json as {"entries": [snapshot]}
-   - Respond: "Learnings queue restored to checkpoint state ([N] entries)."
+## Notes
 
-8. On **No**:
-   - Respond: "Queue unchanged. Git commands shown above if you want to restore code state manually."
+- Checkpoints only store git state and a contextual note
+- They do NOT store conversation history or reflection content
+- Use /save-learnings before rewinding to persist any reflections
+- Git restore commands are shown but not auto-executed for safety

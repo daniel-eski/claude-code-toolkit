@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - Claude Code CLI installed and configured
-- Git (for checkpoint features)
+- Git (for checkpoint features and project detection)
 
 ## Installation Methods
 
@@ -13,9 +13,8 @@
 # Install from repository
 claude plugins add https://github.com/danieleskenazi/claude-learnings-plugin
 
-# Create data directory (required)
+# Create checkpoints directory (optional - for checkpoint/restore features)
 mkdir -p ~/.claude/learnings/checkpoints
-echo '{"entries":[]}' > ~/.claude/learnings/queue.json
 ```
 
 The plugin will be installed to `~/.claude/plugins/claude-learnings/` and commands will be available globally.
@@ -31,9 +30,8 @@ git clone https://github.com/danieleskenazi/claude-learnings-plugin /tmp/claude-
 # Copy commands to global location
 cp /tmp/claude-learnings/commands/*.md ~/.claude/commands/
 
-# Create data directory
+# Create checkpoints directory (optional)
 mkdir -p ~/.claude/learnings/checkpoints
-echo '{"entries":[]}' > ~/.claude/learnings/queue.json
 
 # Cleanup
 rm -rf /tmp/claude-learnings
@@ -51,15 +49,9 @@ mkdir -p .claude/commands
 git clone https://github.com/danieleskenazi/claude-learnings-plugin /tmp/claude-learnings
 cp /tmp/claude-learnings/commands/*.md .claude/commands/
 
-# For project-scoped learnings (optional)
-mkdir -p .claude/learnings/checkpoints
-echo '{"entries":[]}' > .claude/learnings/queue.json
-
 # Cleanup
 rm -rf /tmp/claude-learnings
 ```
-
-**Note:** If using project-scoped learnings, you may want to add `.claude/learnings/` to `.gitignore`.
 
 ## Post-Installation
 
@@ -68,58 +60,49 @@ rm -rf /tmp/claude-learnings
 Start a new Claude Code session (or run `/clear`), then:
 
 ```
-/log Test entry to verify installation
+/reflect
 ```
 
-Expected output:
-```
-Logged insight: "Test entry to verify installation"
-```
-
-Verify the queue:
-```bash
-cat ~/.claude/learnings/queue.json
-```
-
-Should show your test entry.
+Claude should begin analyzing the conversation and producing structured reflection output.
 
 ### Directory Structure After Installation
 
 ```
 ~/.claude/
 ├── commands/                    # (if manual install)
-│   ├── log.md
-│   ├── log_error.md
-│   ├── log_success.md
-│   ├── review-learnings.md
+│   ├── reflect.md
+│   ├── save-learnings.md
 │   ├── checkpoint.md
 │   └── restore.md
 ├── plugins/                     # (if plugin install)
 │   └── claude-learnings/
-│       ├── plugin.json
+│       ├── .claude-plugin/
+│       │   └── plugin.json
 │       └── commands/
 │           └── *.md
-├── learnings/                   # Data storage (created manually)
-│   ├── queue.json
-│   ├── archive.json            # Created on first review
-│   └── checkpoints/
-└── CLAUDE.md                   # Sync target (your existing file)
+└── learnings/                   # Data storage
+    └── checkpoints/             # Named state snapshots
+
+.claude/learnings/               # Project-level (default for saved reflections)
+├── 2026-01-12-143052-auth-work.md
+└── ...
 ```
 
 ## Configuration
 
-### Custom Queue Location
+### Default Save Location
 
-By default, learnings are stored in `~/.claude/learnings/`. To use a different location, edit the command files to change the path.
+By default, `/save-learnings` saves reflections to:
+1. `.claude/learnings/` in the project root (if inside a git repo)
+2. `~/.claude/learnings/` (global fallback)
 
-### Project-Scoped vs Global Learnings
+You can always specify a custom path: `/save-learnings ./my-learnings/`
 
-**Global (default):** Learnings sync to `~/.claude/CLAUDE.md` and are available across all projects.
+### Project-Level vs Global
 
-**Project-scoped:**
-1. Create `.claude/learnings/queue.json` in your project
-2. Edit command files to use `.claude/` instead of `~/.claude/`
-3. Learnings sync to project's `CLAUDE.md`
+**Project-level (default):** Reflections saved to `.claude/learnings/` in your project. Consider adding to `.gitignore` or committing for team sharing.
+
+**Global:** Use `~/.claude/learnings/` for cross-project learnings.
 
 ## Updating
 
@@ -150,15 +133,14 @@ claude plugins remove claude-learnings
 
 ```bash
 # Remove commands
-rm ~/.claude/commands/log.md
-rm ~/.claude/commands/log_error.md
-rm ~/.claude/commands/log_success.md
-rm ~/.claude/commands/review-learnings.md
+rm ~/.claude/commands/reflect.md
+rm ~/.claude/commands/save-learnings.md
 rm ~/.claude/commands/checkpoint.md
 rm ~/.claude/commands/restore.md
 
 # Optionally remove data (WARNING: loses all learnings)
 rm -rf ~/.claude/learnings/
+rm -rf .claude/learnings/
 ```
 
 ## Troubleshooting
@@ -169,23 +151,24 @@ rm -rf ~/.claude/learnings/
 2. Verify files exist in correct location
 3. Check file permissions: `ls -la ~/.claude/commands/`
 
-### Queue not found errors
+### Save fails with permission error
 
-Ensure the data directory exists:
+Ensure the destination directory is writable:
 ```bash
-mkdir -p ~/.claude/learnings/checkpoints
-echo '{"entries":[]}' > ~/.claude/learnings/queue.json
+mkdir -p .claude/learnings
+chmod 755 .claude/learnings
 ```
 
-### Git state not captured in checkpoints
+### Checkpoints not finding git state
 
 Checkpoints only capture git state when run inside a git repository. Verify with:
 ```bash
 git rev-parse --is-inside-work-tree
 ```
 
-### CLAUDE.md not updated after review
+### Reflection output is too vague
 
-1. Check that `~/.claude/CLAUDE.md` exists
-2. Verify you approved (not skipped) entries during review
-3. Check file permissions on CLAUDE.md
+The `/reflect` command requires specific citations with file paths and line numbers. If output is vague:
+1. Check that you're in a project with files to reference
+2. Ensure there was actual work/conversation to reflect on
+3. Use a focus area to narrow the scope: `/reflect Phase 1 work`

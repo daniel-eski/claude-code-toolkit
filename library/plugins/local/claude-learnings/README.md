@@ -3,27 +3,48 @@
 > **Toolkit Copy**: This is a shareable copy with standardized manifest structure
 > (`plugin.json` moved to `.claude-plugin/plugin.json` for toolkit consistency).
 
-A Claude Code plugin for capturing learnings, errors, and successes during coding sessions. Review and sync approved learnings to CLAUDE.md for persistent workflow improvement.
+A Claude Code plugin for thoughtful reflection and learning capture during workflow sessions. Designed to work with rewind: reflect mid-workflow, save learnings to a file, rewind, and continue — your learnings persist for later analysis.
 
 ## Why This Exists
 
-When working with Claude Code, you discover patterns:
-- Things that work well (and should be repeated)
-- Things that fail (and should be avoided)
-- Insights worth remembering
+When working with Claude Code on complex workflows, you accumulate learnings:
+- Things Claude got wrong that you had to correct
+- Instructions that were unclear or confusing
+- Context that was missing from documentation
+- Patterns that worked well
 
-This plugin provides zero-friction capture of these learnings, with human-gated review before anything gets added to your CLAUDE.md.
+This plugin enables **thoughtful reflection** — Claude analyzes its own performance, produces structured learnings with specific file citations, and saves them to a folder that persists after rewind. A downstream agent can later process these learnings to improve workflow files.
 
 ## Features
 
 | Command | Purpose |
 |---------|---------|
-| `/log [entry]` | Quick capture with auto-detected type |
-| `/log_error [entry]` | Capture errors/mistakes (forces "warning" type) |
-| `/log_success [entry]` | Capture what worked (forces "success" type) |
-| `/review-learnings` | Batch review and sync to CLAUDE.md |
+| `/reflect [focus]` | Thoughtful analysis of what went well/poorly, with specific file citations |
+| `/save-learnings [path]` | Persist reflection to folder (survives rewind) |
 | `/checkpoint [name]` | Save state for potential rewind |
 | `/restore [name]` | View/restore from checkpoint |
+
+## The Reflect → Save → Rewind Workflow
+
+```
+[Working on a workflow...]
+        ↓
+User corrects Claude, asks questions, notices confusion
+        ↓
+/reflect                     ← Claude analyzes what happened
+        ↓
+[Review reflection output]
+        ↓
+/save-learnings              ← Save to .claude/learnings/
+        ↓
+/rewind                      ← Go back to before reflection
+        ↓
+[Continue workflow...]
+        ↓
+[Repeat as needed]
+        ↓
+[End: folder of learnings ready for downstream processing]
+```
 
 ## Quick Start
 
@@ -34,108 +55,106 @@ claude plugins add https://github.com/danieleskenazi/claude-learnings-plugin
 # Or manual install (copy to ~/.claude/plugins/)
 git clone https://github.com/danieleskenazi/claude-learnings-plugin ~/.claude/plugins/claude-learnings
 
-# Create required data directory
-mkdir -p ~/.claude/learnings/checkpoints
-echo '{"entries":[]}' > ~/.claude/learnings/queue.json
+# Create learnings directory (optional - created automatically)
+mkdir -p .claude/learnings
 ```
 
-Then in Claude Code:
+Then mid-workflow:
 ```
-/log Always run tests before pushing to main
-/log_error Claude ignored my TypeScript preference
-/log_success The refactor made error handling much cleaner
-/review-learnings
+/reflect Phase 1 authentication work
+[Claude produces detailed reflection with file citations]
+
+/save-learnings
+→ Saved: /project/.claude/learnings/2026-01-12-143052-phase-1-authentication.md
+
+[Now you can /rewind and continue - the learning file persists]
 ```
-
-## How It Works
-
-### Capture Flow
-
-```
-/log, /log_error, /log_success
-           ↓
-    queue.json (pending)
-           ↓
-    /review-learnings
-           ↓
-    Human approves/edits/skips
-           ↓
-    CLAUDE.md (synced)
-```
-
-### Type Detection
-
-When using `/log`, the type is auto-detected from keywords:
-
-| Keywords | Detected Type |
-|----------|---------------|
-| error, failed, wrong, mistake, bug, broke | `warning` |
-| worked, success, solved, fixed, great, perfect | `success` |
-| pattern, always, never, should, must, rule | `pattern` |
-| (none of the above) | `insight` |
-
-Use `/log_error` or `/log_success` to force a specific type.
-
-### Checkpoint/Restore Flow
-
-```
-/checkpoint before-refactor
-     ↓
-  (experiment)
-     ↓
-/restore before-refactor
-     ↓
-  Compare states, optionally restore queue
-```
-
-Checkpoints capture:
-- Learnings queue snapshot
-- Git state (branch, commit, dirty status)
-- Working directory
-- Timestamp
 
 ## Commands Reference
 
-### `/log [entry]`
+### `/reflect [optional: focus area]`
 
-Quick capture with minimal friction.
+Claude performs thoughtful analysis of the current session.
 
+**What it analyzes:**
+- **Corrections received** — What did the user correct? Why did Claude go wrong?
+- **Gaps revealed by questions** — What user questions revealed missing context?
+- **Points of confusion** — What was unclear in instructions or documentation?
+- **What worked well** — What should be preserved?
+- **Open reflection** — Broader patterns and insights
+
+**Key requirement:** Every learning must cite specific files with line numbers and quoted text. Vague observations are not actionable.
+
+**Example:**
 ```
-/log Always check for null before accessing nested properties
-→ Logged pattern: "Always check for null before accessing..."
+/reflect Phase 1 API implementation
+
+# Reflection: Phase 1 API Implementation
+*Generated: 2026-01-12T14:30:52Z*
+*Project: my-project*
+
+---
+
+## Corrections Received
+
+### Correction: Used REST instead of GraphQL
+
+**What happened**: Started implementing REST endpoints when project uses GraphQL.
+
+**What led me astray**: In `CLAUDE.md` (line 23), the text "API development follows standard patterns" doesn't specify GraphQL. The `src/api/` directory structure suggested REST.
+
+**What would have prevented it**:
+Add to `CLAUDE.md` after line 23:
+> ## API Conventions
+> - This project uses GraphQL exclusively
+> - All queries go through `src/graphql/`
+> - Never create REST endpoints
+
+...
+
+## Actionable Items
+
+| Priority | File | Line(s) | Change Type | Description |
+|----------|------|---------|-------------|-------------|
+| High | CLAUDE.md | 23 | Add section | Specify GraphQL-only API pattern |
+| Medium | docs/setup.md | 45-50 | Clarify | Add GraphQL client setup steps |
+
+---
+
+*Ready to save? Use `/save-learnings` or `/save-learnings path/to/folder`*
 ```
 
-### `/log_error [entry]`
+### `/save-learnings [optional: path]`
 
-Explicitly log an error or mistake (forces type to "warning").
+Saves the most recent reflection to a file.
 
+**Default location:**
+- If in a git repo: `.claude/learnings/` at repo root
+- Otherwise: `~/.claude/learnings/`
+
+**Filename format:** `YYYY-MM-DD-HHMMSS-[focus-slug].md`
+
+**Example:**
 ```
-/log_error Claude kept using deprecated API despite instructions
-→ Logged warning: "Claude kept using deprecated API..."
+/save-learnings
+→ Saved: /Users/you/project/.claude/learnings/2026-01-12-143052-phase-1-api.md
+
+/save-learnings ./my-learnings/
+→ Saved: /Users/you/project/my-learnings/2026-01-12-143052-phase-1-api.md
 ```
 
-### `/log_success [entry]`
-
-Explicitly log what worked well (forces type to "success").
-
+The saved file includes YAML frontmatter for programmatic processing:
+```yaml
+---
+saved: 2026-01-12T14:30:52Z
+project: my-project
+workflow: kickoff
+focus: phase-1-api-implementation
+files_referenced:
+  - CLAUDE.md
+  - docs/setup.md
+---
 ```
-/log_success The fix for CORS was adding origin header
-→ Logged success: "The fix for CORS was adding origin..."
-```
-
-### `/review-learnings`
-
-Interactive batch review of pending learnings.
-
-1. Shows summary by type
-2. For each entry: approve / edit / skip / quit
-3. Approved entries sync to appropriate CLAUDE.md section
-4. Processed entries archived
-
-**CLAUDE.md sections created:**
-- `## Learned Patterns` — patterns and insights
-- `## What Works` — successes
-- `## Known Pitfalls` — warnings
 
 ### `/checkpoint [name]`
 
@@ -146,73 +165,55 @@ Save current state for potential rewind.
 → Checkpoint 'before-big-refactor' saved. Restore with /restore before-big-refactor
 ```
 
+Checkpoints capture:
+- Git state (branch, commit, dirty status)
+- Working directory
+- Timestamp
+
 ### `/restore [name]`
 
-View checkpoint state and optionally restore learnings queue.
+View checkpoint state and optionally restore.
 
 ```
 /restore before-big-refactor
-→ Shows checkpoint info, git state diff, asks to restore queue
-```
+→ Shows checkpoint info, git state diff, offers restore options
 
-Without a name, lists available checkpoints:
-```
 /restore
-→ Available checkpoints: before-big-refactor, pre-migration. Usage: /restore [name]
+→ Lists available checkpoints
 ```
 
 ## Data Storage
 
 ```
-~/.claude/
-├── learnings/
-│   ├── queue.json          # Pending entries
-│   ├── archive.json        # Processed entries (created on first review)
-│   └── checkpoints/        # Named state snapshots
-│       └── {name}.json
-└── CLAUDE.md               # Sync target for approved learnings
+.claude/learnings/              # Project-level (default)
+├── 2026-01-12-143052-phase-1-api.md
+├── 2026-01-12-160230-auth-flow.md
+└── ...
+
+~/.claude/learnings/            # Global fallback
+├── checkpoints/                # Named state snapshots
+│   └── {name}.json
+└── ...
 ```
 
-### Queue Entry Schema
+## Downstream Processing
 
-```json
-{
-  "entries": [
-    {
-      "id": "a1b2c3d4",
-      "timestamp": "2026-01-09T14:30:00Z",
-      "type": "pattern",
-      "raw": "Always run tests before pushing",
-      "context": {
-        "cwd": "/Users/you/project"
-      },
-      "status": "pending"
-    }
-  ]
-}
+The saved learnings are designed for consumption by another Claude agent. The format supports:
+
+1. **YAML frontmatter** — Metadata for filtering and organization
+2. **Actionable Items table** — Quick scan of what to change
+3. **Files Referenced list** — Direct links to relevant files
+4. **Full context** — Detailed explanation of each learning
+
+**Example downstream prompt:**
 ```
-
-### Checkpoint Schema
-
-```json
-{
-  "name": "before-refactor",
-  "created": "2026-01-09T14:30:00Z",
-  "cwd": "/Users/you/project",
-  "git": {
-    "branch": "main",
-    "commit": "abc1234",
-    "dirty": false
-  },
-  "learnings_snapshot": []
-}
+Read all files in .claude/learnings/ and use them to improve the workflow files.
+For each actionable item, make the suggested change to the referenced file.
 ```
 
 ## Installation Options
 
 See [INSTALLATION.md](docs/INSTALLATION.md) for detailed instructions.
-
-**Quick options:**
 
 | Method | Command |
 |--------|---------|
@@ -220,17 +221,19 @@ See [INSTALLATION.md](docs/INSTALLATION.md) for detailed instructions.
 | Manual global | Copy `commands/` to `~/.claude/commands/` |
 | Manual project | Copy `commands/` to `.claude/commands/` |
 
-## Roadmap / Future Improvements
+## Design Philosophy
 
-- [ ] **Passive hooks** — Auto-capture corrections (like claude-reflect)
-- [ ] **Confidence scoring** — Prioritize frequently-occurring patterns
-- [ ] **Project-scoped learnings** — Separate project vs global learnings
-- [ ] **Deduplication** — Semantic similarity detection during review
-- [ ] **Archive viewer** — Command to search/view archived learnings
+This plugin prioritizes **thoughtful reflection over quick capture**:
+
+- **Depth over speed** — `/reflect` takes time to analyze, not quick one-liners
+- **Specificity required** — Every learning must cite files and line numbers
+- **Human review** — Reflection shown in conversation before saving
+- **Rewind-compatible** — Saved files persist outside conversation state
+- **Downstream-ready** — Structured format for agent processing
 
 ## Related Tools
 
-This plugin was inspired by:
+Inspired by:
 - [claude-reflect](https://github.com/BayramAnnakov/claude-reflect) — Passive correction capture via hooks
 - [claude-diary](https://github.com/rlancemartin/claude-diary) — Session-based diary entries
 
