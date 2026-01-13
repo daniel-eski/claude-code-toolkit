@@ -8,10 +8,12 @@
 
 Commands the user expressed interest in:
 
-### /log_learnings
+### /log_learnings - COMPLETED
 - **Purpose**: Write document explaining learnings and save to designated folder
 - **Benefit**: Easy to use /rewind afterwards
 - **Related**: Similar to /log_error, /log_success patterns found online
+- **Implemented**: `library/plugins/local/claude-learnings/` (2026-01-12)
+- **Commands**: `/log`, `/log_error`, `/log_success`, `/review-learnings`, `/checkpoint`, `/restore`
 
 ### Quick Git Push
 - **Purpose**: Streamlined git push command
@@ -38,13 +40,15 @@ For indexes and links:
 
 Similar to skills' `freshness-report.sh` but for links/indexes.
 
-## Safety System Integration
+## Safety System Integration - INTEGRATED
 
-When user's safety system is ready:
+Safety system now available:
 - Standard hooks
 - claude-code-safety-net integration
 - Custom safety hooks
 - Documentation of safety patterns
+- **Implemented**: `library/plugins/local/guardrails/` (2026-01-12)
+- **Note**: User has active installation at `~/.claude/` - toolkit copy for shareability
 
 ## Documentation Sync System
 
