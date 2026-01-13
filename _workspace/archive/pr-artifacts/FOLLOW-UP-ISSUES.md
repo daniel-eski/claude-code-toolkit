@@ -3,6 +3,13 @@
 > These issues should be created in GitHub after the PR is merged.
 > The critical issues (1-2) have been fixed in commit `10efeb7`.
 
+**Update 2026-01-12 Session 9+**: Most issues have been addressed:
+- Issue 1: ✅ COMPLETED - Confidence framework added to all 5 self-knowledge docs
+- Issue 2: ✅ VERIFIED - CONTRIBUTING.md config kit section already complete
+- Issue 3: ✅ ANALYZED - All 37 broken links are acceptable (code examples + upstream refs)
+- Issue 4: ✅ COMPLETED - AWS skills updated with corrected upstream paths
+- Issue 5: ✅ COMPLETED - Plugin vs kit guidance added to configs/README.md
+
 ---
 
 ## Issue 1: Add confidence levels and source citations to self-knowledge docs
@@ -193,14 +200,17 @@ Example content:
 
 ## Summary
 
-| Issue | Priority | Effort |
-|-------|----------|--------|
-| 1. Self-knowledge doc confidence levels | Medium | ~2 hours |
-| 2. CONTRIBUTING.md completion | Low | ~30 min |
-| 3. Broken links in skills/plugins | Low | ~2-4 hours |
-| 4. Update stale AWS skills | Low | ~15 min |
-| 5. Plugin vs config kit guidance | Low | ~30 min |
+| Issue | Priority | Effort | Status |
+|-------|----------|--------|--------|
+| 1. Self-knowledge doc confidence levels | Medium | ~2 hours | ✅ COMPLETED |
+| 2. CONTRIBUTING.md completion | Low | ~30 min | ✅ VERIFIED (already done) |
+| 3. Broken links in skills/plugins | Low | ~2-4 hours | ✅ ANALYZED (acceptable) |
+| 4. Update stale AWS skills | Low | ~15 min | ✅ COMPLETED |
+| 5. Plugin vs config kit guidance | Low | ~30 min | ✅ COMPLETED |
+
+**All follow-up issues have been addressed.**
 
 ---
 
 *Generated from PR review on 2026-01-12*
+*Updated: Session 9+ (2026-01-12)*
