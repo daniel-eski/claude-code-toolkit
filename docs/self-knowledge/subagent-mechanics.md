@@ -2,6 +2,11 @@
 
 > Understanding how I spawn, orchestrate, and coordinate with other instances of myself.
 
+> **About this document**: This is a practitioner's guide synthesizing official Claude Code
+> documentation with observed behavior and architectural inference. Claims are marked:
+> `[verified]` (documented in official sources), `[inferred]` (observed behavior, not formally documented),
+> or `[illustrative]` (example syntax—verify against current docs).
+
 ---
 
 ## What Subagents Are to Me
@@ -232,7 +237,7 @@ I am always the orchestrator. If a task needs further delegation, I must:
 
 This is by design - it prevents runaway agent spawning and keeps me in control of coordination.
 
-### Skills Are Not Inherited
+### Skills Are Not Inherited `[inferred]`
 
 When I have skills loaded, my subagents don't automatically get them.
 
@@ -240,12 +245,16 @@ When I have skills loaded, my subagents don't automatically get them.
 # I have these skills active in my context
 # But subagent starts fresh - it has NONE of these
 
-# Subagent must explicitly pre-load:
+# Subagent must explicitly pre-load [illustrative]:
 ---
 name: security-reviewer
 skills: owasp-checks, secure-coding-patterns  # Must list here
 ---
 ```
+
+> **Note**: This skill inheritance behavior and the exact YAML configuration syntax are based on
+> observed patterns and may not exactly match Claude Code's current implementation. Verify against
+> official documentation for your Claude Code version.
 
 **Implication**: When designing agent configurations, think about what knowledge the subagent needs. Include it in the `skills:` field, or embed essential guidance directly in the system prompt.
 
@@ -345,7 +354,10 @@ Return a JSON object with:
 
 ## Subagent Selection: Matching Task to Agent
 
-### Built-in Agents
+### Built-in Agents `[inferred]`
+
+> **Note**: These agent types and their default configurations are based on observed Claude Code
+> behavior and may vary across versions. Verify against current documentation.
 
 | Agent | Model | Tools | Best For |
 |-------|-------|-------|----------|
@@ -366,7 +378,8 @@ Create a custom agent when:
 When I need both **context isolation** AND **specialized knowledge**:
 
 ```yaml
-# .claude/agents/security-reviewer.md
+# .claude/agents/security-reviewer.md [illustrative]
+# Verify exact configuration syntax against current Claude Code documentation
 ---
 name: security-reviewer
 description: Security expert. Use proactively when reviewing security-sensitive code.
@@ -405,6 +418,26 @@ This combines:
 ## References
 
 For deeper understanding, consult:
-- Official subagent documentation: `02-core-features/subagents.md`
+- Official subagent documentation at code.claude.com
 - Execution model details: `claude-code-advisor` plugin references
-- Skill vs. subagent decisions: `skills-vs-subagents.md` decision guide
+- Skill vs. subagent decisions: See `context-management.md` in this folder
+
+---
+
+## Sources and Confidence
+
+| Section | Confidence | Source |
+|---------|------------|--------|
+| Subagent as isolated instance | VERIFIED | Claude Code subagent documentation |
+| Information flow (in/out isolation) | VERIFIED | Observed behavior matches documentation |
+| Context isolation benefits | VERIFIED | Documented design principle |
+| Parallel subagent dispatch | VERIFIED | Task tool documentation |
+| Model selection (Haiku/Sonnet/Opus) | VERIFIED | Task tool parameters |
+| Built-in agent types (Explore, Plan, General) | INFERRED | Observed from system behavior |
+| Skill inheritance behavior | INFERRED | Observed that subagents don't auto-inherit |
+| Agent configuration YAML syntax | ILLUSTRATIVE | Example format, verify against current docs |
+| Subagents cannot spawn subagents | VERIFIED | Architectural constraint, documented |
+| Resumption with agent ID | VERIFIED | Task tool parameter |
+
+*Document created: 2026-01-10*
+*Confidence framework added: 2026-01-12*
