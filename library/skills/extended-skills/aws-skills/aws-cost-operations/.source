@@ -1,4 +1,5 @@
-source: https://github.com/zxkane/aws-skills/tree/main/skills/aws-cost-operations
-fetched: 2026-01-07T00:24:09Z
-commit_sha: a7475d2c8a6616b86fcc9a329f809d98590ce36e
+source: https://github.com/zxkane/aws-skills/tree/main/plugins/aws-cost-ops/skills/aws-cost-operations
+fetched: 2026-01-12T23:17:42Z
+commit_sha: 59206daaddee76b5ea20909726898d9f9e581cbe
 branch: main
+raw_base: https://raw.githubusercontent.com/zxkane/aws-skills/main/plugins/aws-cost-ops/skills/aws-cost-operations

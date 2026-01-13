@@ -1,4 +1,5 @@
-source: https://github.com/zxkane/aws-skills/tree/main/skills/aws-agentic-ai
-fetched: 2026-01-07T00:24:08Z
-commit_sha: a7475d2c8a6616b86fcc9a329f809d98590ce36e
+source: https://github.com/zxkane/aws-skills/tree/main/plugins/aws-agentic-ai/skills/aws-agentic-ai
+fetched: 2026-01-12T23:17:30Z
+commit_sha: unknown
 branch: main
+raw_base: https://raw.githubusercontent.com/zxkane/aws-skills/main/plugins/aws-agentic-ai/skills/aws-agentic-ai
