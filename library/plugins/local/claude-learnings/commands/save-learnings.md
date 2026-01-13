@@ -11,6 +11,16 @@ Persist the most recent reflection output to a file that survives conversation r
 
 Destination: $ARGUMENTS
 
+### Rewind Behavior
+
+The saved file persists through conversation rewind (it's on disk).
+
+**Important:** After rewinding, the reflection content is no longer in conversation context. To save new learnings after rewind, run `/reflect` again first.
+
+**Typical workflow:**
+1. Work → `/reflect` → review → `/save-learnings` → `/rewind` → continue
+2. More work → `/reflect` again → `/save-learnings` → repeat as needed
+
 ## The Process
 
 ### Step 1: Locate Reflection
@@ -39,7 +49,13 @@ Format: `YYYY-MM-DD-HHMMSS-[focus-slug].md`
 
 Rules:
 - Use current timestamp
-- If a focus area was specified in the reflection, slugify it (lowercase, hyphens for spaces, remove special chars)
+- If a focus area was specified in the reflection, slugify it:
+  1. Convert to lowercase
+  2. Replace spaces and underscores with hyphens
+  3. Remove all characters except a-z, 0-9, and hyphens
+  4. Collapse multiple consecutive hyphens to single hyphen
+  5. Trim leading/trailing hyphens
+  6. If result is empty, use "reflection"
 - If no focus area, use "full-session"
 - Truncate slug to 50 characters max
 
@@ -54,6 +70,7 @@ Prepend YAML frontmatter to the reflection content:
 
 ```yaml
 ---
+schema_version: "1.0"
 saved: [ISO 8601 timestamp]
 project: [repo name from git, or directory name]
 workflow: [workflow name if identifiable from conversation]

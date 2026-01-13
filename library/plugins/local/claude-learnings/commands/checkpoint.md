@@ -25,7 +25,9 @@ Name: $ARGUMENTS
         - Dirty: `git status --porcelain` (non-empty = dirty)
       - If no git, set git fields to null
 
-   c. Note: A brief description of what you're about to do (infer from conversation context)
+   c. Note: A brief description of what you're about to do
+      - Infer from conversation context if available
+      - If context is unclear, use: "Checkpoint before proceeding"
 
 3. Create checkpoint file at ~/.claude/learnings/checkpoints/[name].json:
    ```json

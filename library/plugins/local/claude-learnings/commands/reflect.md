@@ -24,7 +24,7 @@ Use `/reflect` when:
 
 ## The Reflection Process
 
-Follow these steps in order. Do not skip any section, but you may note "None" if a section is genuinely empty.
+Follow these steps in order. Do not skip any section, but you may note "None identified" if a section is genuinely empty.
 
 ### Step 1: Scope Determination
 
@@ -147,6 +147,26 @@ Compile a structured summary that a future agent can act on:
 - `path/to/other.md:12` — [why referenced]
 ```
 
+---
+
+## Self-Check Before Output
+
+Before generating the final reflection, verify each learning against these criteria:
+
+| Criterion | Required? | Example |
+|-----------|-----------|---------|
+| File path | Yes | `CLAUDE.md`, `src/auth.ts` |
+| Line numbers | When referencing content | `lines 45-52` |
+| Quoted text | When referencing instructions | `"Always use GraphQL"` |
+| Actionable suggestion | Yes | Specific text to add/change |
+
+**If a learning fails these criteria:**
+- Enhance it with specific citations, OR
+- Move it to "Open Reflection" as a general observation, OR
+- Remove it if not valuable without specifics
+
+Quality over quantity. Vague learnings are not actionable.
+
 ## Output Format
 
 Present the reflection using this structure:
@@ -162,19 +182,19 @@ Present the reflection using this structure:
 
 ## Corrections Received
 
-[Section A content - each correction with full details]
+[Each correction with full details. If none: "None identified"]
 
 ## Gaps Revealed
 
-[Section B content - each gap with suggested additions]
+[Each gap with suggested additions. If none: "None identified"]
 
 ## Points of Confusion
 
-[Section C content - each confusion point with improvements]
+[Each confusion point with improvements. If none: "None identified"]
 
 ## What Worked Well
 
-[Section D content - what to preserve]
+[What to preserve. If none: "None identified"]
 
 ## Open Reflection
 
