@@ -7,7 +7,7 @@
 | Folder | Contents | Status |
 |--------|----------|--------|
 | `skills/` | 32 working skills + 2 placeholders | Active |
-| `plugins/` | 3 local + 13 official documented | Active |
+| `plugins/` | 5 local + 13 official documented | Active |
 | `configs/` | 1 configuration kit | Active |
 | `tools/` | 11 utility scripts | Active |
 
@@ -37,7 +37,7 @@
 
 ### Plugins
 → Official (13): `plugins/official/CATALOG.md`
-→ Local (3): `plugins/local/README.md`
+→ Local (5): `plugins/local/README.md`
 
 ### Tools
 → Utility scripts: `tools/README.md`
@@ -47,6 +47,14 @@
 
 ---
 
+## Evaluating External Resources
+
+Want to add skills or plugins from external sources?
+→ Framework: `EVALUATION-FRAMEWORK.md`
+→ Candidates: `plugins/community/README.md`
+
+---
+
 ## Status
 
-ACTIVE - Migrated from old repo (2026-01-09).
+ACTIVE - 5 local plugins, 32 skills, 11 tools.
